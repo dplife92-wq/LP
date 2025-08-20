@@ -1,0 +1,25 @@
+{
+  "name": "landing-page-local",
+  "version": "1.0.0",
+  "description": "Serveur local pour la landing page de formation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "landing-page",
+    "local-server",
+    "formation",
+    "therapeute"
+  ],
+  "author": "Landing Page Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
