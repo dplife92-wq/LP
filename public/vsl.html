@@ -220,6 +220,35 @@
             };
         }
         
+        // 🆕 FONCTION DE REDIRECTION VERS LA PAGE DE FORMATION
+        function redirectToFormation(firstName, email) {
+            console.log('🎯 === REDIRECTION VERS PAGE DE FORMATION ===');
+            console.log('Prénom:', firstName);
+            console.log('Email:', email);
+            
+            // Construire l'URL vers la page de formation
+            const formationUrl = new URL('/formation', window.location.origin);
+            
+            // Ajouter les paramètres si disponibles
+            if (firstName) formationUrl.searchParams.set('firstName', firstName);
+            if (email) formationUrl.searchParams.set('email', email);
+            formationUrl.searchParams.set('source', 'vsl');
+            formationUrl.searchParams.set('timestamp', new Date().toISOString());
+            
+            console.log('🔗 URL de redirection:', formationUrl.toString());
+            
+            // Track la redirection
+            trackEvent('Redirected to Formation Page', {
+                'firstName': firstName,
+                'email': email,
+                'formation_url': formationUrl.toString(),
+                'source': 'vsl_cta'
+            });
+            
+            // Rediriger vers la page de formation
+            window.location.href = formationUrl.toString();
+        }
+        
         // Affichage des informations utilisateur
         function displayUserInfo() {
             const params = getURLParams();
@@ -235,31 +264,32 @@
             }
         }
         
-        // Gestion du bouton CTA
+        // 🆕 GESTION DU BOUTON CTA AVEC REDIRECTION
         function initializeCTAButton() {
             const ctaButton = document.getElementById('ctaButton');
             
             if (ctaButton) {
                 ctaButton.addEventListener('click', function() {
-                    console.log('🚀 CTA button clicked');
+                    console.log('🚀 CTA button clicked - Redirection vers formation');
                     
                     // Haptic feedback
                     if (navigator.vibrate) {
                         navigator.vibrate([50, 50, 100]);
                     }
                     
-                    // Track l'événement
+                    // Récupérer les paramètres utilisateur
                     const params = getURLParams();
-                    trackEvent('CTA Clicked - Program Access', {
+                    
+                    // Track l'événement
+                    trackEvent('CTA Clicked - Formation Access', {
                         'cta_text': this.textContent.trim(),
                         'firstName': params.firstName,
                         'email': params.email,
-                        'destination': 'payment_page'
+                        'destination': 'formation_page'
                     });
                     
-                    // Redirection vers la page de paiement (à configurer plus tard)
-                    alert('🚀 Redirection vers la page de paiement !\n\n(À configurer plus tard)');
-                    // window.location.href = '/payment'; // À décommenter plus tard
+                    // Redirection vers la page de formation
+                    redirectToFormation(params.firstName, params.email);
                 });
             }
         }
@@ -289,10 +319,15 @@
             }, 1000);
         });
         
-        // Fonctions de debug
+        // 🆕 FONCTIONS DE DEBUG MISES À JOUR
         window.testCTA = function() {
-            console.log('🧪 Test CTA');
+            console.log('🧪 Test CTA - Redirection formation');
             document.getElementById('ctaButton').click();
+        };
+        
+        window.testFormationRedirect = function(testFirstName = 'TestUser', testEmail = 'test@example.com') {
+            console.log('🧪 === TEST REDIRECTION FORMATION ===');
+            redirectToFormation(testFirstName, testEmail);
         };
         
         // Pour ajouter du contenu dynamiquement plus tard
