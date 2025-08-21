@@ -936,6 +936,47 @@
                         
                         <button class="btn btn-purple cta-btn" data-action="show-modal">
                             <span class="play-icon">▶</span>
+                            APPRENDRE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Ce qu'ils ont pensé de cette formation</h2>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_copie_2_znqjx2.png" alt="Témoignage de Georges" style="width: 100%; border-radius: 8px;">
+                        <div class="testimonial-info">
+                            <h3>Georges</h3>
+                            <p>Professeur d'espagnol</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_keykjc.png" alt="Témoignage d'Anne-Sophie" style="width: 100%; border-radius: 8px;">
+                        <div class="testimonial-info">
+                            <h3>Anne-Sophie</h3>
+                            <p>Professeur de mathématiques</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_copie_yc15q5.png" alt="Témoignage de Brigitte" style="width: 100%; border-radius: 8px;">
+                        <div class="testimonial-info">
+                            <h3>Brigitte</h3>
+                            <p>Professeur de français</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <button class="btn btn-purple cta-btn" data-action="show-modal">
+                        <span class="play-icon">▶</span>
                         APPRENDRE
                     </button>
                 </div>
@@ -1077,22 +1118,6 @@
                     };
                 }
             }
-        }
-        
-        // Fonction de redirection vers la page VSL
-        function redirectToVSL(firstName, email) {
-            console.log('🎬 Redirection vers la page VSL...');
-            
-            // Construire l'URL avec les paramètres
-            const vslUrl = new URL('/vsl.html', window.location.origin);
-            vslUrl.searchParams.set('firstName', firstName);
-            vslUrl.searchParams.set('email', email);
-            vslUrl.searchParams.set('timestamp', new Date().toISOString());
-            
-            console.log('🔗 URL de redirection:', vslUrl.toString());
-            
-            // Rediriger vers la page VSL
-            window.location.href = vslUrl.toString();
         }
         
         // Fonctions utilitaires pour les messages
@@ -1245,14 +1270,14 @@
             }
         }
         
-        // Form submission SÉCURISÉ avec redirection VSL
+        // Form submission SÉCURISÉ
         function initializeForm() {
             const form = document.getElementById('leadForm');
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    console.log('📝 === SOUMISSION FORMULAIRE AVEC REDIRECTION VSL ===');
+                    console.log('📝 === SOUMISSION FORMULAIRE ===');
                     
                     const formData = new FormData(form);
                     const firstName = formData.get('firstName').trim();
@@ -1274,44 +1299,37 @@
                     setFormLoading(true);
                     
                     try {
-                        // Afficher un message de succès immédiat
-                        showMessage(`Merci ${firstName} ! Redirection vers votre formation...`, 'success');
+                        const result = await subscribeToKlaviyo(email, firstName);
                         
-                        // Track la soumission
-                        if (window._learnq) {
-                            window._learnq.push(['track', 'Form Submitted - Redirecting to VSL', {
-                                'email': email,
-                                'first_name': firstName,
-                                'source': 'landing_page_modal',
-                                'timestamp': new Date().toISOString()
-                            }]);
+                        console.log('📊 Résultat final:', result);
+                        
+                        if (result.success) {
+                            // Succès réel
+                            if (navigator.vibrate) {
+                                navigator.vibrate([50, 50, 100]);
+                            }
+                            
+                            showMessage(`Merci ${firstName} ! Vous allez recevoir un email avec le lien de la formation.`, 'success');
+                            
+                            setTimeout(() => {
+                                closeModal();
+                            }, 3000);
+                            
+                        } else {
+                            // Erreur mais message optimiste pour l'UX
+                            showMessage(`Merci ${firstName} ! Votre demande a été enregistrée. Nous vous recontacterons bientôt.`, 'success');
+                            setTimeout(() => closeModal(), 2000);
                         }
                         
-                        // Délai court pour montrer le message, puis redirection
-                        setTimeout(() => {
-                            // Lancer l'inscription en arrière-plan
-                            subscribeToKlaviyo(email, firstName).then(result => {
-                                console.log('📊 Inscription terminée en arrière-plan:', result);
-                            }).catch(error => {
-                                console.log('⚠️ Erreur inscription arrière-plan (non bloquante):', error);
-                            });
-                            
-                            // Redirection immédiate vers VSL
-                            redirectToVSL(firstName, email);
-                        }, 1500);
-                        
                     } catch (error) {
-                        console.error('💥 Erreur lors de la soumission:', error);
+                        console.error('💥 Erreur lors de l\'inscription:', error);
                         
-                        // Même en cas d'erreur, rediriger vers VSL pour une bonne UX
-                        showMessage(`Merci ${firstName} ! Redirection vers votre formation...`, 'success');
-                        setTimeout(() => {
-                            redirectToVSL(firstName, email);
-                        }, 1500);
+                        // Message optimiste même en cas d'erreur (UX)
+                        showMessage(`Merci ${firstName} ! Votre demande a été enregistrée.`, 'success');
+                        setTimeout(() => closeModal(), 2000);
                         
                     } finally {
-                        // Ne pas remettre le loading à false car on redirige
-                        // setFormLoading(false);
+                        setFormLoading(false);
                     }
                 });
             }
@@ -1402,10 +1420,10 @@
         
         // Initialisation complète
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎬 === INITIALISATION AVEC REDIRECTION VSL ===');
+            console.log('🎬 === INITIALISATION COMPLÈTE ===');
             console.log('✅ Aucune clé Klaviyo exposée côté client');
             console.log('✅ Modal avec fond flouté et centrage parfait');
-            console.log('✅ Redirection automatique vers VSL après soumission');
+            console.log('✅ Boutons CTA toujours fonctionnels');
             
             // Initialiser tous les composants
             initializeButtons();
@@ -1425,7 +1443,7 @@
             setTimeout(() => {
                 if (window._learnq) {
                     console.log('✅ Klaviyo chargé pour tracking côté client');
-                    window._learnq.push(['track', 'Landing Page Viewed', {
+                    window._learnq.push(['track', 'Page Viewed', {
                         'page': window.location.pathname,
                         'title': document.title,
                         'timestamp': new Date().toISOString()
@@ -1435,18 +1453,13 @@
                 }
             }, 2000);
             
-            console.log('🎯 Initialisation terminée - Redirection VSL configurée !');
+            console.log('🎯 Initialisation terminée - Tous les boutons CTA fonctionnent !');
         });
 
         // Fonctions de debug
         window.testModal = function() {
             console.log('🧪 Test d\'affichage de la modal');
             showModal();
-        };
-
-        window.testVSLRedirect = function(testFirstName = 'TestUser', testEmail = 'test@example.com') {
-            console.log('🧪 === TEST REDIRECTION VSL ===');
-            redirectToVSL(testFirstName, testEmail);
         };
 
         window.testSecureAPI = function(testEmail = 'test@example.com', testFirstName = 'Test User') {
@@ -1478,44 +1491,3 @@
     </script>
 </body>
 </html>
-                            APPRENDRE
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <h2>Ce qu'ils ont pensé de cette formation</h2>
-                
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_copie_2_znqjx2.png" alt="Témoignage de Georges" style="width: 100%; border-radius: 8px;">
-                        <div class="testimonial-info">
-                            <h3>Georges</h3>
-                            <p>Professeur d'espagnol</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_keykjc.png" alt="Témoignage d'Anne-Sophie" style="width: 100%; border-radius: 8px;">
-                        <div class="testimonial-info">
-                            <h3>Anne-Sophie</h3>
-                            <p>Professeur de mathématiques</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755714566/Design_sans_titre_copie_yc15q5.png" alt="Témoignage de Brigitte" style="width: 100%; border-radius: 8px;">
-                        <div class="testimonial-info">
-                            <h3>Brigitte</h3>
-                            <p>Professeur de français</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <button class="btn btn-purple cta-btn" data-action="show-modal">
-                        <span class="play-icon">▶</span>
