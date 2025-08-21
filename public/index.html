@@ -642,7 +642,7 @@
         
         /* MODAL AMÉLIORÉE - Fond flouté et centrage parfait */
         .modal {
-            display: none;
+            display: none; /* Cachée par défaut */
             position: fixed;
             z-index: 10000;
             left: 0;
@@ -654,15 +654,12 @@
             -webkit-backdrop-filter: blur(8px);
             animation: modalFadeIn 0.3s ease;
             padding: 16px;
-            
-            /* Centrage parfait */
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .modal.show {
-            display: flex !important;
+            display: flex !important; /* Flexbox UNIQUEMENT quand .show */
+            align-items: center;
+            justify-content: center;
         }
         
         .modal-content {
