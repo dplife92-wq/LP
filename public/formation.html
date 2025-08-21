@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remplis ton agenda d'élèves en 24h — Formation Facebook Ads pour professeurs (27€)</title>
+    <meta name="description" content="Formation complète pour professeurs particuliers : trouve des élèves en 24h avec Facebook Ads. Sans technique, sans réseaux sociaux. 27€ seulement - Garantie 14 jours.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Formation Facebook Ads pour Professeurs - 27€">
+    <meta property="og:description" content="Applique aujourd'hui, décroche tes premiers élèves dès ce soir. Formation complète sans technique.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/bundle-mockup.png">
+    <meta property="og:url" content="https://academy.quentinmdb.com/formation">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Formation Facebook Ads pour Professeurs - 27€">
+    <meta name="twitter:description" content="Applique aujourd'hui, décroche tes premiers élèves dès ce soir">
+    <meta name="twitter:image" content="/bundle-mockup.png">
+    
+    <!-- Schema.org FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Je ne connais rien aux pubs Facebook, est-ce pour moi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument ! La formation est conçue pour les débutants complets. Tout est expliqué étape par étape avec des captures d'écran. Si vous savez poster une photo sur Facebook, vous savez appliquer cette méthode."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Faut-il un budget pub important ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, vous pouvez commencer avec 5€ par jour. La formation vous montre comment optimiser votre budget pour obtenir un élève avec 4-10€ de dépense publicitaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir les premiers résultats ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement 24-48h après avoir lancé votre première campagne. Certains élèves obtiennent leurs premières demandes le soir même."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: linear-gradient(135deg, #6A5ACD, #9370DB);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 2px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: #6A5ACD;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
+        }
+        
+        .btn:hover {
+            background: #483D8B;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(106, 90, 205, 0.4);
+        }
+        
+        .btn-large {
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+        }
+        
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-benefits {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-benefits li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .hero-benefits li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .hero-image {
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .badges {
+            display: flex;
+            gap: 20px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .badges {
+                justify-content: center;
+            }
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .social-proof h3 {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+        
+        /* What's Inside */
+        .whats-inside {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .module-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #6A5ACD;
+        }
+        
+        .module-card h3 {
+            color: #6A5ACD;
+            margin-bottom: 0.5rem;
+        }
+        
+        .module-duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .module-card ul {
+            list-style: none;
+        }
+        
+        .module-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .module-card li::before {
+            content: "•";
+            color: #6A5ACD;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .bonus-section {
+            background: linear-gradient(135deg, #6A5ACD, #9370DB);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .bonus-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .value-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .value-original {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .value-current {
+            font-size: 2.5rem;
+            color: #6A5ACD;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+        
+        /* For Who */
+        .for-who {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .for-who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .for-who-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .for-who-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .for-who-card.yes {
+            border-top: 4px solid #28a745;
+        }
+        
+        .for-who-card.no {
+            border-top: 4px solid #dc3545;
+        }
+        
+        .for-who-card h3 {
+            color: #28a745;
+            margin-bottom: 1.5rem;
+        }
+        
+        .for-who-card.no h3 {
+            color: #dc3545;
+        }
+        
+        .for-who-card ul {
+            list-style: none;
+        }
+        
+        .for-who-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .for-who-card.yes li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .for-who-card.no li::before {
+            content: "✗";
+            color: #dc3545;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #6A5ACD;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #6A5ACD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .testimonial-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-info p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #6A5ACD;
+        }
+        
+        .price-display {
+            margin: 30px 0;
+        }
+        
+        .price-old {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .price-new {
+            font-size: 3rem;
+            color: #6A5ACD;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+        
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-icon {
+            padding: 8px 16px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 20px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .guarantee-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #28a745;
+        }
+        
+        .guarantee-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #28a745;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+        
+        /* About */
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .about-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #6A5ACD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 600;
+            margin: 0 auto;
+        }
+        
+        .about-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .about-text li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .about-text li::before {
+            content: "✓";
+            color: #6A5ACD;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #6A5ACD, #9370DB);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .final-cta .btn {
+            background: white;
+            color: #6A5ACD;
+            margin-top: 20px;
+        }
+        
+        .final-cta .btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            background: #333;
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #6A5ACD;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .cookie-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+        
+        .cookie-accept {
+            background: #6A5ACD;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            🔥 Offre de lancement : <strong>27€ au lieu de 97€</strong> — <a href="#pricing">Dernières places disponibles</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Remplis ton agenda d'élèves en 24h — sans réseaux sociaux, sans galère technique</h1>
+                    
+                    <p class="hero-subtitle">La méthode complète pour avoir des demandes d'élèves qui tombent directement dans ta boîte mail. <strong>Formation 45 minutes + templates prêts</strong> — seulement 27€</p>
+                    
+                    <ul class="hero-benefits">
+                        <li>Lance ta première campagne en 20 minutes chrono (template fourni)</li>
+                        <li>Reçois des demandes de vrais parents/élèves dès ce soir</li>
+                        <li>Stabilise ton revenu avec des créneaux récurrents</li>
+                        <li>Arrête de casser tes prix sur les plateformes sursaturées</li>
+                        <li>Applicable aujourd'hui même — sans expérience marketing</li>
+                    </ul>
+                    
+                    <a href="#pricing" class="btn btn-large">Accéder à la formation — 27€</a>
+                    
+                    <div class="badges">
+                        <div class="badge">
+                            <span>🔒</span> Paiement sécurisé
+                        </div>
+                        <div class="badge">
+                            <span>✅</span> Garantie 14 jours
+                        </div>
+                        <div class="badge">
+                            <span>⚡</span> Accès immédiat
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="/bundle-mockup.png" alt="Bundle de la formation (MacBook, iPhone, iPad avec visuels de la formation)" loading="lazy" width="500" height="400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h3>Déjà 547 professeurs accompagnés</h3>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="whats-inside" id="whats-inside">
+        <div class="container">
+            <h2>Ce que tu vas obtenir</h2>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>Module 1 : La méthode et le ciblage</h3>
+                    <p class="module-duration">📹 15 minutes</p>
+                    <ul>
+                        <li>Comment identifier ton élève idéal</li>
+                        <li>Les 3 audiences qui convertissent le mieux</li>
+                        <li>Paramétrage du ciblage Facebook</li>
+                        <li>Les erreurs qui font flamber ton budget</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Module 2 : Mise en place rapide</h3>
+                    <p class="module-duration">📹 15 minutes</p>
+                    <ul>
+                        <li>Configuration complète étape par étape</li>
+                        <li>5 templates d'annonces prêts à copier</li>
+                        <li>Budget optimal pour commencer</li>
+                        <li>Check-list pour éviter les blocages</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Module 3 : Optimisation & suivi</h3>
+                    <p class="module-duration">📹 15 minutes</p>
+                    <ul>
+                        <li>Lecture des statistiques importantes</li>
+                        <li>Comment améliorer tes résultats</li>
+                        <li>Routine quotidienne (5 min/jour)</li>
+                        <li>Quand et comment augmenter ton budget</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bonus-section">
+                <h3>🎁 Bonus inclus (valeur 127€)</h3>
+                
+                <div class="bonus-grid">
+                    <div class="bonus-item">
+                        <h4>10 accroches prêtes</h4>
+                        <p>Copie-colle les messages qui convertissent</p>
+                    </div>
+                    <div class="bonus-item">
+                        <h4>5 scripts parents/élèves</h4>
+                        <p>Réponds aux questions récurrentes</p>
+                    </div>
+                    <div class="bonus-item">
+                        <h4>3 modèles Canva</h4>
+                        <p>Visuels professionnels prêts</p>
+                    </div>
+                    <div class="bonus-item">
+                        <h4>Checklists PDF</h4>
+                        <p>Aide-mémoires 1 page</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="value-section">
+                <p><strong>Valeur totale :</strong> <span class="value-original">197€</span> <span class="value-current">27€</span></p>
+                <p><small>Soit 86% de réduction pour les 100 premiers</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Who -->
+    <section class="for-who" id="for-who">
+        <div class="container">
+            <h2>Est-ce que c'est pour toi ?</h2>
+            
+            <div class="for-who-grid">
+                <div class="for-who-card yes">
+                    <h3>✅ C'est pour toi si...</h3>
+                    <ul>
+                        <li>Tu es étudiant et veux arrondir tes fins de mois</li>
+                        <li>Tu es enseignant et veux compléter ton salaire</li>
+                        <li>Tu es retraité et cherches une activité enrichissante</li>
+                        <li>Tu es en reconversion et veux te lancer rapidement</li>
+                        <li>Tu veux arrêter de dépendre des plateformes</li>
+                        <li>Tu donnes des cours en ligne ou à domicile</li>
+                        <li>Tu veux des résultats rapides et mesurables</li>
+                    </ul>
+                </div>
+                
+                <div class="for-who-card no">
+                    <h3>❌ Ce n'est pas pour toi si...</h3>
+                    <ul>
+                        <li>Tu cherches une solution miracle sans effort</li>
+                        <li>Tu n'as pas 20 minutes pour configurer</li>
+                        <li>Tu préfères rester sur Superprof uniquement</li>
+                        <li>Tu n'as pas 5€ de budget pub pour commencer</li>
+                        <li>Tu veux des milliers d'élèves du jour au lendemain</li>
+                        <li>Tu n'es pas à l'aise avec un ordinateur</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>Comment ça marche (3 étapes simples)</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Je rejoins</h3>
+                    <p>Paiement sécurisé 27€ et accès immédiat à la plateforme de formation. Tous les modules + bonus disponibles instantanément.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>J'installe la campagne</h3>
+                    <p>Je suis la formation étape par étape (45 min total) et j'utilise les templates fournis pour configurer ma première pub en 20 minutes.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Je décroche mes premiers élèves</h3>
+                    <p>Ma campagne tourne, les demandes arrivent. Je consacre 5 minutes par jour au suivi et j'optimise selon les résultats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Ce qu'ils ont obtenu</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"En 36h, 4 demandes dont 2 élèves récurrents. Mon planning du mercredi est enfin rempli ! La méthode est vraiment accessible même pour quelqu'un comme moi qui ne connaissait rien aux pubs."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div class="testimonial-info">
+                            <h4>Camille</h4>
+                            <p>Français/Lycée, Lyon</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Planning du mercredi rempli en 1 semaine. Les parents me contactent directement maintenant, fini la galère sur Superprof. J'ai même pu augmenter mes tarifs de 5€/heure."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">Y</div>
+                        <div class="testimonial-info">
+                            <h4>Youssef</h4>
+                            <p>Primaire/Maths, Montpellier</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"+30% de tarif avec packs premium post-bac. Maintenant que j'ai plus de demandes, je peux me permettre d'être sélectif et de proposer des formules plus rentables."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div class="testimonial-info">
+                            <h4>Karim</h4>
+                            <p>Maths Spé, Paris</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Fini la dépendance à Superprof : 7 leads/semaine stables. Je donne des cours en visio uniquement et ça marche parfaitement. Les parents me trouvent maintenant facilement."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sophie</h4>
+                            <p>Anglais (visio), Lille</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"À 67 ans, j'ai réussi à maîtriser cette méthode. Maintenant j'ai 12 élèves réguliers et je choisis mes horaires. C'est simple quand c'est bien expliqué !"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">P</div>
+                        <div class="testimonial-info">
+                            <h4>Philippe</h4>
+                            <p>Français, Bordeaux</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"En reconversion après 15 ans dans le marketing. Cette formation m'a permis d'avoir mes premiers élèves en 48h. Le ROI est impressionnant : 7€ de pub pour 125€ de CA."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Marie</h4>
+                            <p>Mathématiques, Toulouse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Accès à la formation complète</h2>
+            
+            <div class="pricing-card">
+                <h3>Formation "Élèves en 24h"</h3>
+                <ul style="text-align: left; margin: 20px 0;">
+                    <li>✅ 3 modules vidéo (45 minutes total)</li>
+                    <li>✅ Templates d'annonces prêts à copier</li>
+                    <li>✅ Scripts de conversation parents/élèves</li>
+                    <li>✅ 10 accroches qui convertissent</li>
+                    <li>✅ 3 modèles visuels Canva</li>
+                    <li>✅ Checklists PDF pratiques</li>
+                    <li>✅ Accès immédiat et à vie</li>
+                    <li>✅ Garantie satisfait ou remboursé 14 jours</li>
+                </ul>
+                
+                <div class="price-display">
+                    <span class="price-old">97€</span>
+                    <span class="price-new">27€</span>
+                </div>
+                
+                <a href="#checkout" class="btn btn-large" onclick="handlePurchase()">Accéder maintenant — 27€</a>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    <strong>Satisfait ou remboursé pendant 14 jours</strong><br>
+                    Accès immédiat après paiement
+                </p>
+                
+                <div class="payment-icons">
+                    <div class="payment-icon">💳 Carte bancaire</div>
+                    <div class="payment-icon">🏦 Virement</div>
+                    <div class="payment-icon">📱 PayPal</div>
+                    <div class="payment-icon">🔒 Paiement sécurisé</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Questions fréquentes</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Je ne connais rien aux pubs Facebook, est-ce pour moi ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolument ! La formation est conçue pour les débutants complets. Tout est expliqué étape par étape avec des captures d'écran. Si vous savez poster une photo sur Facebook, vous savez appliquer cette méthode.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Faut-il un budget pub important ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Non, vous pouvez commencer avec 5€ par jour. La formation vous montre comment optimiser votre budget pour obtenir un élève avec 4-10€ de dépense publicitaire.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Est-ce que ça marche si je n'ai pas d'avis/peu d'expérience ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui ! La méthode inclut des techniques spécifiques pour les nouveaux professeurs : comment présenter votre profil, les arguments qui rassurent les parents, et comment transformer votre "manque d'expérience" en avantage.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Et si je ne suis pas à l'aise avec l'informatique ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La formation est pensée pour les "non-techniques". Chaque étape est filmée en détail, avec des flèches et des explications claires. Plus de 50 personnes de plus de 60 ans ont réussi à l'appliquer.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Je donne des cours en visio uniquement, ça fonctionne aussi ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Parfaitement ! La méthode fonctionne même mieux pour les cours en ligne car vous pouvez cibler toute la France. Plusieurs modules sont spécifiquement dédiés aux cours à distance.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Je cible les élèves du primaire/lycée/adultes — c'est adapté ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, la formation couvre tous les niveaux avec des exemples spécifiques. Vous apprendrez à adapter votre ciblage selon votre public (parents pour primaire/collège, directement élèves pour lycée/supérieur).</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Combien de temps pour voir les premiers résultats ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Généralement 24-48h après avoir lancé votre première campagne. Certains élèves obtiennent leurs premières demandes le soir même. Le record est de 3 demandes en 6 heures !</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Que se passe-t-il après le paiement ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Vous recevez immédiatement vos accès par email. La plateforme est accessible 24h/24, et vous gardez l'accès à vie. Vous pouvez commencer à regarder la formation dans les 5 minutes qui suivent.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Puis-je me faire rembourser si ça ne me convient pas ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Bien sûr ! Vous avez 14 jours pour tester la formation. Si vous n'êtes pas satisfait, envoyez simplement un email et vous êtes remboursé intégralement, sans question.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Ai-je besoin d'un site web ou d'Instagram/TikTok ?
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Non ! C'est tout l'avantage de cette méthode. Pas besoin de site web, pas besoin de créer du contenu sur les réseaux sociaux. Tout se passe directement dans Facebook Ads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee" id="guarantee">
+        <div class="container">
+            <h2>Garantie sans risque</h2>
+            
+            <div class="guarantee-card">
+                <div class="guarantee-icon">✓</div>
+                <h3>Satisfait ou remboursé 14 jours</h3>
+                <p>Testez la formation en toute tranquillité. Si après avoir suivi les modules vous n'obtenez pas de résultats, ou si la méthode ne vous convient pas, contactez-nous par email et vous serez remboursé intégralement.</p>
+                <p><strong>Aucune justification demandée. Aucune condition cachée.</strong></p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                    Email support : support@academy.quentinmdb.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Qui suis-je ?</h2>
+            
+            <div class="about-content">
+                <div class="about-image">Q</div>
+                <div class="about-text">
+                    <p>Moi c'est <strong>Quentin</strong>, et depuis 5 ans j'aide des entrepreneurs à trouver des clients avec la publicité Facebook. Cette année, j'ai dépensé plus de 80 000€ en publicité pour différents business.</p>
+                    
+                    <p>Quand j'ai vu des professeurs talentueux galérer à trouver des élèves sur les plateformes sursaturées, j'ai décidé d'adapter mes techniques d'acquisition pour le secteur des cours particuliers.</p>
+                    
+                    <ul>
+                        <li>Plus de 500 campagnes Facebook gérées</li>
+                        <li>Spécialiste acquisition clients/prospects</li>
+                        <li>547 professeurs déjà accompagnés</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <h2>Prêt à remplir ton agenda d'élèves ?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                La formation complète + tous les bonus pour seulement 27€<br>
+                <small>(au lieu de 97€ — offre limitée)</small>
+            </p>
+            
+            <a href="#pricing" class="btn btn-large" onclick="handlePurchase()">
+                Commencer maintenant — 27€
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
+                ✅ Accès immédiat • ✅ Garantie 14 jours • ✅ Paiement sécurisé
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/mentions-legales">Mentions légales</a>
+                <a href="/cgv">CGV</a>
+                <a href="/politique-confidentialite">Politique de confidentialité</a>
+                <a href="/contact">Contact</a>
+            </div>
+            
+            <p>&copy; 2025 Academy Quentin MDB. Tous droits réservés.</p>
+            <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">
+                Support : support@academy.quentinmdb.com
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="backToTop">
+        ↑
+    </button>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre utilisation des cookies.</p>
+            <button class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Cookie Banner
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        // Show cookie banner if not accepted
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }, 2000);
+        }
+
+        // Handle Purchase (placeholder)
+        function handlePurchase() {
+            // Ici, vous intégrerez votre système de paiement
+            // Stripe, PayPal, ou autre
+            alert('Redirection vers le paiement sécurisé...\n\n(À intégrer avec votre processeur de paiement)');
+            
+            // Exemple de tracking pour analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'purchase_click', {
+                    'event_category': 'ecommerce',
+                    'event_label': 'formation_professeurs_27',
+                    'value': 27
+                });
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#checkout') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Loading optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy load images that are not in viewport
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.src; // Trigger loading
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                images.forEach(img => imageObserver.observe(img));
+            }
+        });
+    </script>
+</body>
+</html>
