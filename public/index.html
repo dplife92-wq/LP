@@ -640,95 +640,81 @@
             }
         }
         
-        /* Modal */
+        /* MODAL AMÉLIORÉE - Fond flouté et centrage parfait */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 10000;
             left: 0;
             top: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(0,0,0,0.5);
-            animation: fadeIn 0.3s ease;
-            padding: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: modalFadeIn 0.3s ease;
+            padding: 16px;
+            
+            /* Centrage parfait */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.show {
+            display: flex !important;
         }
         
         .modal-content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             background: white;
-            border-radius: 12px;
-            width: calc(100% - 32px);
+            border-radius: 16px;
+            width: 100%;
             max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-            z-index: 1001;
-        }
-        
-        .modal-header {
-            padding: 20px 20px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            animation: modalSlideIn 0.3s ease forwards;
             position: relative;
         }
         
-        @media (min-width: 768px) {
-            .modal-header {
-                padding: 24px 24px 0;
-            }
+        .modal-header {
+            padding: 24px 24px 0;
+            position: relative;
         }
         
         .modal-close {
             position: absolute;
-            right: 12px;
-            top: 12px;
-            background: none;
+            right: 16px;
+            top: 16px;
+            background: rgba(0, 0, 0, 0.1);
             border: none;
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
             color: #666;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            border-radius: 50%;
             touch-action: manipulation;
-        }
-        
-        @media (min-width: 768px) {
-            .modal-close {
-                right: 16px;
-                top: 16px;
-                font-size: 24px;
-            }
+            transition: all 0.2s ease;
         }
         
         .modal-close:hover, .modal-close:focus {
+            background: rgba(0, 0, 0, 0.2);
             color: #333;
-            background: #f5f5f5;
             outline: none;
-        }
-        
-        .modal-close:active {
-            background: #eee;
+            transform: scale(1.1);
         }
         
         .progress-bar {
             background: #e9ecef;
-            height: 6px;
-            border-radius: 3px;
-            margin: 12px 0 8px 0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 16px 0;
             overflow: hidden;
-        }
-        
-        @media (min-width: 768px) {
-            .progress-bar {
-                height: 8px;
-                border-radius: 4px;
-                margin: 16px 0;
-            }
         }
         
         .progress-fill {
@@ -750,49 +736,26 @@
         }
         
         @keyframes progressStripes {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 20px 0;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
         }
         
         .modal-body {
-            padding: 0 20px 20px;
+            padding: 0 24px 24px;
             text-align: center;
         }
         
-        @media (min-width: 768px) {
-            .modal-body {
-                padding: 0 24px 24px;
-            }
-        }
-        
         .modal h3 {
-            margin-bottom: 12px;
-            font-size: 16px;
+            margin-bottom: 16px;
+            font-size: 20px;
             color: #333;
-        }
-        
-        @media (min-width: 768px) {
-            .modal h3 {
-                margin-bottom: 16px;
-                font-size: 18px;
-            }
+            line-height: 1.3;
         }
         
         .modal p {
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-bottom: 24px;
+            font-size: 16px;
             color: #666;
-        }
-        
-        @media (min-width: 768px) {
-            .modal p {
-                margin-bottom: 24px;
-                font-size: 16px;
-            }
         }
         
         .modal-form {
@@ -808,9 +771,9 @@
         
         .form-input {
             width: 100%;
-            padding: 16px 20px;
+            padding: 18px 20px;
             border: 2px solid #e9ecef;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
             background: white;
             color: #333;
@@ -820,7 +783,8 @@
         
         .form-input:focus {
             border-color: #6A5ACD;
-            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.1);
+            box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.1);
+            transform: translateY(-2px);
         }
         
         .form-input::placeholder {
@@ -834,40 +798,6 @@
             gap: 12px;
         }
         
-        .modal-footer {
-            text-align: center;
-            padding: 12px;
-        }
-        
-        .modal-footer button {
-            background: none;
-            border: none;
-            color: #666;
-            font-size: 12px;
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 8px;
-            border-radius: 4px;
-            touch-action: manipulation;
-        }
-        
-        @media (min-width: 768px) {
-            .modal-footer button {
-                font-size: 14px;
-            }
-        }
-        
-        .modal-footer button:hover, .modal-footer button:focus {
-            color: #333;
-            outline: none;
-            background: #f5f5f5;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         /* Sticky CTA for Mobile */
         .sticky-cta {
             position: fixed;
@@ -875,10 +805,11 @@
             left: 0;
             right: 0;
             background: white;
-            padding: 12px 16px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
+            padding: 16px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
             display: block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
         
         @media (min-width: 768px) {
@@ -889,6 +820,23 @@
         
         .sticky-cta .btn {
             margin: 0;
+        }
+        
+        /* Animations */
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes modalSlideIn {
+            from { 
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
         
         /* Extra small screen breakpoint */
@@ -902,69 +850,59 @@
                 line-height: 1.3;
             }
             
-            .lead {
-                font-size: 13px;
+            .modal {
+                padding: 8px;
             }
             
+            .modal-content {
+                border-radius: 12px;
+            }
+            
+            .modal-header {
+                padding: 16px 16px 0;
+            }
+            
+            .modal-body {
+                padding: 0 16px 16px;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .modal,
+            .modal-content,
+            .form-input,
             .btn {
-                font-size: 12px;
-                padding: 10px 16px;
-                min-height: 40px;
+                animation: none;
+                transition: none;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .modal {
+                background-color: rgba(0, 0, 0, 0.8);
             }
             
-            .hero-title {
-                padding: 20px 0 16px;
-            }
-            
-            .content-section {
-                padding: 24px 0 40px;
+            .modal-content {
+                border: 2px solid #000;
             }
         }
         
-        /* Framer optimizations */
-        .framer-optimized {
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000px;
+        /* Blur effect for main content when modal is open */
+        body.modal-open {
+            overflow: hidden;
         }
         
-        /* Touch interactions */
-        @media (hover: none) and (pointer: coarse) {
-            .btn:hover {
-                transform: none;
-                box-shadow: none;
-            }
-            
-            .play-btn:hover {
-                transform: none;
-            }
-        }
-        
-        /* High DPI optimizations */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .video-player {
-                border-width: 1px;
-            }
-        }
-        
-        /* Safeguards */
-        * {
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-        
-        img, video, iframe {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        h1, h2, h3, p {
-            overflow-wrap: break-word;
-            word-break: break-word;
+        body.modal-open main,
+        body.modal-open .sticky-cta,
+        body.modal-open .footer {
+            filter: blur(4px);
+            transition: filter 0.3s ease;
         }
     </style>
 </head>
-<body class="framer-optimized">
+<body>
     <main id="main-content">
         <!-- Hero Title Section -->
         <section class="hero-title">
@@ -985,7 +923,7 @@
                             <img src="https://res.cloudinary.com/dwxakodta/image/upload/v1755706197/ezgif.com-animated-gif-maker_egcy9p.gif" 
                                  alt="Vidéo de formation - Tableau explicatif" 
                                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                            <button class="play-btn" aria-label="Lire la vidéo de formation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></button>
+                            <button class="play-btn" aria-label="Lire la vidéo de formation"></button>
                         </figure>
                     </div>
                     
@@ -999,10 +937,10 @@
                             <li>Gagner 5000€ (ou plus) par mois, de façon récurrente et prévisible</li>
                         </ul>
                         
-                        <a href="#" class="btn btn-purple" id="hero-cta">
+                        <button class="btn btn-purple cta-btn" data-action="show-modal">
                             <span class="play-icon">▶</span>
                             APPRENDRE
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1040,10 +978,10 @@
                 </div>
                 
                 <div class="cta-section">
-                    <a href="#" class="btn btn-purple">
+                    <button class="btn btn-purple cta-btn" data-action="show-modal">
                         <span class="play-icon">▶</span>
                         APPRENDRE
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -1051,10 +989,10 @@
 
     <!-- Sticky CTA for Mobile -->
     <div class="sticky-cta">
-        <a href="#" class="btn btn-purple">
+        <button class="btn btn-purple cta-btn" data-action="show-modal">
             <span class="play-icon">▶</span>
             APPRENDRE
-        </a>
+        </button>
     </div>
 
     <!-- Footer -->
@@ -1073,11 +1011,11 @@
         </div>
     </footer>
 
-    <!-- Exit Intent Modal -->
-    <div id="exitModal" class="modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+    <!-- MODAL AMÉLIORÉE - Toujours fonctionnelle -->
+    <div id="formModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="modal-close" aria-label="Fermer la modale">&times;</button>
+                <button class="modal-close" aria-label="Fermer la modale" data-action="close-modal">&times;</button>
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
                 </div>
@@ -1090,10 +1028,10 @@
                 
                 <form class="modal-form" id="leadForm">
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Prénom" name="firstName" required>
+                        <input type="text" class="form-input" placeholder="Prénom" name="firstName" required autocomplete="given-name">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Email" name="email" required>
+                        <input type="email" class="form-input" placeholder="Email" name="email" required autocomplete="email">
                     </div>
                 </form>
                 
@@ -1110,8 +1048,6 @@
     <script>
         // Variables globales
         let modalShown = false;
-        let exitTimer;
-        let touchStartY = 0;
         
         // Détection mobile
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -1123,7 +1059,6 @@
             console.log('Prénom:', firstName);
             
             try {
-                // Appel à l'API Vercel (pas d'exposition de clés)
                 const response = await fetch('/api/subscribe', {
                     method: 'POST',
                     headers: {
@@ -1155,17 +1090,15 @@
             } catch (error) {
                 console.error('❌ Erreur API Vercel:', error);
 
-                // Fallback vers tracking côté client UNIQUEMENT (sans inscription)
+                // Fallback vers tracking côté client UNIQUEMENT
                 try {
                     console.log('🔄 Fallback tracking côté client...');
                     
-                    // Attendre que Klaviyo soit chargé pour le tracking
                     if (typeof window._learnq !== 'undefined') {
-                        // UNIQUEMENT tracker l'événement (pas d'inscription)
                         window._learnq.push(['track', 'Form Submission Attempt', {
                             'email': email,
                             'first_name': firstName,
-                            'source': 'exit_intent_modal_fallback',
+                            'source': 'form_modal_fallback',
                             'api_error': error.message,
                             'timestamp': new Date().toISOString()
                         }]);
@@ -1215,71 +1148,139 @@
             }
         }
         
-        // Fonctions de la modale
-        function showExitModal() {
-            if (!modalShown) {
-                modalShown = true;
-                const modal = document.getElementById('exitModal');
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                const firstFocusable = modal.querySelector('button, a[href], input');
-                if (firstFocusable) {
-                    setTimeout(() => firstFocusable.focus(), 100);
-                }
-                
-                trapFocus(modal);
-                
-                // Track modal ouvert (côté client seulement)
-                if (window._learnq) {
-                    window._learnq.push(['track', 'Modal Opened', {
-                        'modal_type': 'exit_intent',
-                        'page': window.location.pathname
-                    }]);
-                }
+        // FONCTIONS MODAL AMÉLIORÉES - Toujours fonctionnelles
+        function showModal() {
+            console.log('🎯 Affichage de la modal');
+            
+            const modal = document.getElementById('formModal');
+            const body = document.body;
+            
+            // Afficher la modal
+            modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            
+            // Flouter le fond
+            body.classList.add('modal-open');
+            
+            // Focus management
+            const firstInput = modal.querySelector('.form-input');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 100);
             }
+            
+            // Marquer comme affiché
+            modalShown = true;
+            
+            // Track modal ouvert
+            if (window._learnq) {
+                window._learnq.push(['track', 'Modal Opened', {
+                    'modal_type': 'form_modal',
+                    'page': window.location.pathname,
+                    'timestamp': new Date().toISOString()
+                }]);
+            }
+            
+            console.log('✅ Modal affichée avec succès');
         }
         
         function closeModal() {
-            const modal = document.getElementById('exitModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
+            console.log('🔒 Fermeture de la modal');
+            
+            const modal = document.getElementById('formModal');
+            const body = document.body;
+            
+            // Cacher la modal
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            
+            // Enlever le flou
+            body.classList.remove('modal-open');
+            
+            // Clear messages
             document.getElementById('form-messages').innerHTML = '';
-            document.body.focus();
+            
+            // Reset form
+            document.getElementById('leadForm').reset();
+            setFormLoading(false);
+            
+            console.log('✅ Modal fermée');
         }
         
-        function trapFocus(element) {
-            const focusableElements = element.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            const firstFocusable = focusableElements[0];
-            const lastFocusable = focusableElements[focusableElements.length - 1];
+        // Event listeners pour tous les boutons CTA
+        function initializeButtons() {
+            console.log('🔧 Initialisation des boutons');
             
-            element.addEventListener('keydown', function(e) {
-                if (e.key === 'Tab') {
-                    if (e.shiftKey) {
-                        if (document.activeElement === firstFocusable) {
-                            lastFocusable.focus();
-                            e.preventDefault();
-                        }
-                    } else {
-                        if (document.activeElement === lastFocusable) {
-                            firstFocusable.focus();
-                            e.preventDefault();
-                        }
+            // Tous les boutons avec data-action="show-modal"
+            const ctaButtons = document.querySelectorAll('[data-action="show-modal"]');
+            const closeButtons = document.querySelectorAll('[data-action="close-modal"]');
+            const playButton = document.querySelector('.play-btn');
+            
+            console.log(`Found ${ctaButtons.length} CTA buttons`);
+            console.log(`Found ${closeButtons.length} close buttons`);
+            
+            // Ajouter event listeners aux boutons CTA
+            ctaButtons.forEach((button, index) => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log(`🎯 CTA button ${index + 1} clicked`);
+                    
+                    // Haptic feedback
+                    if (navigator.vibrate) {
+                        navigator.vibrate([50, 50, 100]);
                     }
-                }
+                    
+                    // Track click
+                    if (window._learnq) {
+                        window._learnq.push(['track', 'CTA Clicked', {
+                            'cta_text': this.textContent.trim(),
+                            'cta_position': index,
+                            'page': window.location.pathname
+                        }]);
+                    }
+                    
+                    // Toujours afficher la modal
+                    showModal();
+                });
             });
+            
+            // Ajouter event listeners aux boutons de fermeture
+            closeButtons.forEach((button) => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeModal();
+                });
+            });
+            
+            // Play button
+            if (playButton) {
+                playButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🎬 Play button clicked');
+                    
+                    if (navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+                    
+                    // Animation
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    // Afficher la modal
+                    showModal();
+                });
+            }
         }
         
         // Form submission SÉCURISÉ
-        document.addEventListener('DOMContentLoaded', function() {
+        function initializeForm() {
             const form = document.getElementById('leadForm');
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    console.log('🎯 === SOUMISSION FORMULAIRE SÉCURISÉE ===');
+                    console.log('📝 === SOUMISSION FORMULAIRE ===');
                     
                     const formData = new FormData(form);
                     const firstName = formData.get('firstName').trim();
@@ -1301,7 +1302,6 @@
                     setFormLoading(true);
                     
                     try {
-                        // Appel sécurisé via API Vercel
                         const result = await subscribeToKlaviyo(email, firstName);
                         
                         console.log('📊 Résultat final:', result);
@@ -1336,150 +1336,65 @@
                     }
                 });
             }
-        });
+        }
         
-        // Exit intent detection - Desktop
-        if (!isMobile) {
-            document.addEventListener('mouseleave', function(e) {
-                if (e.clientY <= 0 && !modalShown) {
-                    clearTimeout(exitTimer);
-                    exitTimer = setTimeout(showExitModal, 1500);
+        // Event listeners pour fermeture modal
+        function initializeModalEvents() {
+            const modal = document.getElementById('formModal');
+            
+            // Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+            
+            // Click outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            // Focus trap
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    const focusableElements = modal.querySelectorAll(
+                        'button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                    );
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            lastElement.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            firstElement.focus();
+                            e.preventDefault();
+                        }
+                    }
                 }
             });
         }
-        
-        // Exit intent detection - Mobile 
-        if (isMobile) {
-            let scrollTimeout;
-            let hasScrolledSignificantly = false;
-            
-            window.addEventListener('scroll', function() {
-                const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-                
-                if (scrollPercent > 30) {
-                    hasScrolledSignificantly = true;
-                }
-                
-                if (scrollPercent > 75 && hasScrolledSignificantly && !modalShown) {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(showExitModal, 1000);
-                }
-            }, { passive: true });
-            
-            document.addEventListener('touchstart', function(e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-            
-            document.addEventListener('touchmove', function(e) {
-                if (!modalShown && hasScrolledSignificantly) {
-                    const touchY = e.touches[0].clientY;
-                    const touchDiff = touchStartY - touchY;
-                    
-                    if (touchDiff > 50 && window.scrollY < 100) {
-                        setTimeout(showExitModal, 800);
-                    }
-                }
-            }, { passive: true });
-        }
-        
-        // Modal close events
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-        
-        document.getElementById('exitModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-        
-        document.querySelector('.modal-close').addEventListener('click', closeModal);
-        
-        // Button interactions
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                if (!isMobile) {
-                    this.style.transform = 'translateY(-2px)';
-                }
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                if (!isMobile) {
-                    this.style.transform = 'translateY(0)';
-                }
-            });
-            
-            button.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            }, { passive: true });
-            
-            button.addEventListener('touchend', function() {
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            }, { passive: true });
-        });
-        
-        // Play button interactions
-        document.querySelectorAll('.play-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                if (navigator.vibrate) {
-                    navigator.vibrate(50);
-                }
-                
-                this.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-                
-                if (!modalShown) {
-                    setTimeout(showExitModal, 300);
-                }
-            });
-        });
-        
-        // CTA interactions
-        document.querySelectorAll('.btn-purple').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') {
-                    e.preventDefault();
-                    
-                    if (navigator.vibrate) {
-                        navigator.vibrate([50, 50, 100]);
-                    }
-                    
-                    // Track CTA click (côté client uniquement)
-                    if (window._learnq) {
-                        window._learnq.push(['track', 'CTA Clicked', {
-                            'cta_text': this.textContent.trim(),
-                            'page': window.location.pathname
-                        }]);
-                    }
-                    
-                    if (!modalShown) {
-                        setTimeout(showExitModal, 300);
-                    }
-                }
-            });
-        });
         
         // Sticky CTA logic
         function handleStickyCtaVisibility() {
             if (!isMobile) return;
             
             const stickyCta = document.querySelector('.sticky-cta');
-            const heroCta = document.getElementById('hero-cta');
+            const heroSection = document.querySelector('.hero-title');
             const footer = document.querySelector('.footer');
             
-            if (!stickyCta || !heroCta || !footer) return;
+            if (!stickyCta || !heroSection || !footer) return;
             
-            const heroCtaRect = heroCta.getBoundingClientRect();
+            const heroRect = heroSection.getBoundingClientRect();
             const footerRect = footer.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            if (heroCtaRect.bottom > 0 || footerRect.top < windowHeight) {
+            if (heroRect.bottom > 0 || footerRect.top < windowHeight) {
                 stickyCta.style.transform = 'translateY(100%)';
                 stickyCta.style.opacity = '0';
             } else {
@@ -1488,6 +1403,7 @@
             }
         }
         
+        // Scroll handler optimisé
         let ticking = false;
         function updateOnScroll() {
             handleStickyCtaVisibility();
@@ -1505,22 +1421,28 @@
             handleStickyCtaVisibility();
         }, { passive: true });
         
-        // Initialisation
+        // Initialisation complète
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎬 === INITIALISATION SÉCURISÉE ===');
+            console.log('🎬 === INITIALISATION COMPLÈTE ===');
             console.log('✅ Aucune clé Klaviyo exposée côté client');
-            console.log('✅ Appels API via Vercel sécurisés');
+            console.log('✅ Modal avec fond flouté et centrage parfait');
+            console.log('✅ Boutons CTA toujours fonctionnels');
             
+            // Initialiser tous les composants
+            initializeButtons();
+            initializeForm();
+            initializeModalEvents();
+            
+            // Sticky CTA
             const stickyCta = document.querySelector('.sticky-cta');
             if (stickyCta) {
-                stickyCta.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
                 stickyCta.style.transform = 'translateY(100%)';
                 stickyCta.style.opacity = '0';
             }
             
             setTimeout(handleStickyCtaVisibility, 100);
             
-            // Track page view (côté client uniquement)
+            // Track page view
             setTimeout(() => {
                 if (window._learnq) {
                     console.log('✅ Klaviyo chargé pour tracking côté client');
@@ -1533,35 +1455,33 @@
                     console.log('⚠️ Klaviyo non chargé (tracking uniquement)');
                 }
             }, 2000);
+            
+            console.log('🎯 Initialisation terminée - Tous les boutons CTA fonctionnent !');
         });
 
-        // Fonctions de debug sécurisées
+        // Fonctions de debug
+        window.testModal = function() {
+            console.log('🧪 Test d\'affichage de la modal');
+            showModal();
+        };
+
         window.testSecureAPI = function(testEmail = 'test@example.com', testFirstName = 'Test User') {
             console.log('🧪 === TEST API VERCEL SÉCURISÉE ===');
             return subscribeToKlaviyo(testEmail, testFirstName);
         };
 
-        window.checkSecurity = function() {
-            console.log('🔒 === VÉRIFICATION SÉCURITÉ ===');
-            console.log('✅ Aucune clé privée dans le code');
-            console.log('✅ API calls via /api/subscribe uniquement');
-            console.log('✅ Klaviyo utilisé uniquement pour tracking côté client');
+        window.checkButtons = function() {
+            const ctaButtons = document.querySelectorAll('[data-action="show-modal"]');
+            const playButton = document.querySelector('.play-btn');
             
-            // Vérifier qu'aucune clé n'est exposée
-            const scriptContent = document.documentElement.outerHTML;
-            const hasPrivateKey = scriptContent.includes('pk_') || scriptContent.includes('sk_');
+            console.log('🔍 === VÉRIFICATION BOUTONS ===');
+            console.log(`✅ ${ctaButtons.length} boutons CTA trouvés`);
+            console.log(`✅ ${playButton ? 1 : 0} bouton play trouvé`);
             
-            if (hasPrivateKey) {
-                console.error('❌ ATTENTION: Clé potentiellement exposée dans le code !');
-            } else {
-                console.log('✅ Aucune clé exposée détectée');
-            }
+            ctaButtons.forEach((btn, i) => {
+                console.log(`Bouton ${i + 1}:`, btn.textContent.trim());
+            });
         };
-
-        // Vérification automatique
-        setTimeout(() => {
-            window.checkSecurity();
-        }, 1000);
 
         // Error handling
         window.addEventListener('error', function(e) {
