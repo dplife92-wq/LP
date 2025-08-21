@@ -1120,6 +1120,34 @@
             }
         }
         
+        // 🎬 NOUVELLE FONCTION - Redirection vers la page VSL
+        function redirectToVSL(firstName, email) {
+            console.log('🎬 === REDIRECTION VERS LA PAGE VSL ===');
+            console.log('Prénom:', firstName);
+            console.log('Email:', email);
+            
+            // Construire l'URL avec les paramètres
+            const vslUrl = new URL('/vsl.html', window.location.origin);
+            vslUrl.searchParams.set('firstName', firstName);
+            vslUrl.searchParams.set('email', email);
+            vslUrl.searchParams.set('timestamp', new Date().toISOString());
+            
+            console.log('🔗 URL de redirection:', vslUrl.toString());
+            
+            // Track la redirection
+            if (window._learnq) {
+                window._learnq.push(['track', 'Redirected to VSL', {
+                    'email': email,
+                    'first_name': firstName,
+                    'vsl_url': vslUrl.toString(),
+                    'timestamp': new Date().toISOString()
+                }]);
+            }
+            
+            // Rediriger vers la page VSL
+            window.location.href = vslUrl.toString();
+        }
+        
         // Fonctions utilitaires pour les messages
         function showMessage(message, type = 'success') {
             const messagesContainer = document.getElementById('form-messages');
@@ -1270,14 +1298,14 @@
             }
         }
         
-        // Form submission SÉCURISÉ
+        // 🆕 FORM SUBMISSION MODIFIÉ - Avec redirection vers VSL
         function initializeForm() {
             const form = document.getElementById('leadForm');
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    console.log('📝 === SOUMISSION FORMULAIRE ===');
+                    console.log('📝 === SOUMISSION FORMULAIRE AVEC REDIRECTION VSL ===');
                     
                     const formData = new FormData(form);
                     const firstName = formData.get('firstName').trim();
@@ -1299,38 +1327,42 @@
                     setFormLoading(true);
                     
                     try {
-                        const result = await subscribeToKlaviyo(email, firstName);
+                        // Message de confirmation immédiat
+                        showMessage(`Merci ${firstName} ! Redirection vers votre formation...`, 'success');
                         
-                        console.log('📊 Résultat final:', result);
-                        
-                        if (result.success) {
-                            // Succès réel
-                            if (navigator.vibrate) {
-                                navigator.vibrate([50, 50, 100]);
-                            }
-                            
-                            showMessage(`Merci ${firstName} ! Vous allez recevoir un email avec le lien de la formation.`, 'success');
-                            
-                            setTimeout(() => {
-                                closeModal();
-                            }, 3000);
-                            
-                        } else {
-                            // Erreur mais message optimiste pour l'UX
-                            showMessage(`Merci ${firstName} ! Votre demande a été enregistrée. Nous vous recontacterons bientôt.`, 'success');
-                            setTimeout(() => closeModal(), 2000);
+                        // Track la soumission
+                        if (window._learnq) {
+                            window._learnq.push(['track', 'Form Submitted - VSL Redirect', {
+                                'email': email,
+                                'first_name': firstName,
+                                'source': 'landing_page_modal',
+                                'timestamp': new Date().toISOString()
+                            }]);
                         }
                         
+                        // Lancer l'inscription Klaviyo en arrière-plan (non bloquant)
+                        subscribeToKlaviyo(email, firstName).then(result => {
+                            console.log('📊 Inscription Klaviyo terminée en arrière-plan:', result);
+                        }).catch(error => {
+                            console.log('⚠️ Erreur inscription Klaviyo (non bloquante):', error);
+                        });
+                        
+                        // Redirection vers VSL après un court délai pour montrer le message
+                        setTimeout(() => {
+                            redirectToVSL(firstName, email);
+                        }, 1500);
+                        
                     } catch (error) {
-                        console.error('💥 Erreur lors de l\'inscription:', error);
+                        console.error('💥 Erreur lors de la soumission:', error);
                         
-                        // Message optimiste même en cas d'erreur (UX)
-                        showMessage(`Merci ${firstName} ! Votre demande a été enregistrée.`, 'success');
-                        setTimeout(() => closeModal(), 2000);
-                        
-                    } finally {
-                        setFormLoading(false);
+                        // Même en cas d'erreur, rediriger vers VSL pour une bonne UX
+                        showMessage(`Merci ${firstName} ! Redirection vers votre formation...`, 'success');
+                        setTimeout(() => {
+                            redirectToVSL(firstName, email);
+                        }, 1500);
                     }
+                    
+                    // Note: On ne remet pas setFormLoading(false) car on redirige
                 });
             }
         }
@@ -1420,10 +1452,10 @@
         
         // Initialisation complète
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎬 === INITIALISATION COMPLÈTE ===');
+            console.log('🎬 === INITIALISATION AVEC REDIRECTION VSL ===');
             console.log('✅ Aucune clé Klaviyo exposée côté client');
             console.log('✅ Modal avec fond flouté et centrage parfait');
-            console.log('✅ Boutons CTA toujours fonctionnels');
+            console.log('✅ Redirection automatique vers VSL après soumission');
             
             // Initialiser tous les composants
             initializeButtons();
@@ -1443,7 +1475,7 @@
             setTimeout(() => {
                 if (window._learnq) {
                     console.log('✅ Klaviyo chargé pour tracking côté client');
-                    window._learnq.push(['track', 'Page Viewed', {
+                    window._learnq.push(['track', 'Landing Page Viewed', {
                         'page': window.location.pathname,
                         'title': document.title,
                         'timestamp': new Date().toISOString()
@@ -1453,13 +1485,18 @@
                 }
             }, 2000);
             
-            console.log('🎯 Initialisation terminée - Tous les boutons CTA fonctionnent !');
+            console.log('🎯 Initialisation terminée - Redirection VSL configurée !');
         });
 
-        // Fonctions de debug
+        // 🆕 FONCTIONS DE DEBUG MISES À JOUR
         window.testModal = function() {
             console.log('🧪 Test d\'affichage de la modal');
             showModal();
+        };
+
+        window.testVSLRedirect = function(testFirstName = 'TestUser', testEmail = 'test@example.com') {
+            console.log('🧪 === TEST REDIRECTION VSL ===');
+            redirectToVSL(testFirstName, testEmail);
         };
 
         window.testSecureAPI = function(testEmail = 'test@example.com', testFirstName = 'Test User') {
