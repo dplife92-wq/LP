@@ -888,6 +888,34 @@
             }
         }
         
+        /* Desktop: Image à droite, contenu à gauche avec CTA après les bullets */
+        @media (min-width: 969px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+            
+            .hero-text {
+                order: 1;
+            }
+            
+            .hero-image {
+                order: 2;
+            }
+            
+            .hero-cta {
+                order: 2;
+                margin-top: 2rem;
+            }
+            
+            .hero-benefits {
+                order: 1;
+                margin-top: 2rem;
+                margin-bottom: 0;
+            }
+        }
+        
         .hero-subtitle {
             font-size: 1.2rem;
             color: #9CA3AF;
