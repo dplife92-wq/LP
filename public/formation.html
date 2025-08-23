@@ -312,7 +312,7 @@
             align-items: center;
         }
         
-        /* Mobile-first layout: TITRE - SOUS TITRE - IMAGE - BULLETS */
+        /* Mobile-first layout: TITRE - SOUS TITRE - IMAGE - CTA - BULLETS */
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -325,8 +325,12 @@
                 order: 1;
             }
             
-            .hero-text {
+            .hero-cta {
                 order: 2;
+            }
+            
+            .hero-benefits {
+                order: 3;
             }
         }
         
@@ -347,12 +351,14 @@
         
         .hero-benefits {
             list-style: none;
-            margin-bottom: 2.5rem;
+            margin-bottom: 0;
+            margin-top: 2rem;
         }
         
         @media (max-width: 768px) {
             .hero-benefits {
-                margin-bottom: 2rem;
+                margin-bottom: 0;
+                margin-top: 2rem;
                 text-align: left;
                 max-width: 400px;
                 margin-left: auto;
@@ -1281,7 +1287,7 @@
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-header">
-                <h1>Mon Agenda Plein™ : La méthode ultime pour remplir votre agenda d'élèves chaque semaine, sans plateformes ni réseaux sociaux.</h1>
+                <h1>Mon Agenda Plein™ : La méthode ultime pour remplir votre agenda d'élèves, sans plateformes ni réseaux sociaux.</h1>
                 <p class="hero-subtitle">Découvrez la méthode exacte pour obtenir un flux stable et constant de demandes d'élèves en 2025.</p>
             </div>
             
@@ -1291,6 +1297,10 @@
                 </div>
                 
                 <div class="hero-text">
+                    <a href="#pricing" class="btn btn-large hero-cta">
+                        <span>Je précommande - 27€</span>
+                    </a>
+                    
                     <ul class="hero-benefits">
                         <li>Obtenez 3, 5, 10 élèves par semaine</li>
                         <li>De manière automatique, stable et rapide</li>
@@ -1298,10 +1308,6 @@
                         <li>Méthode applicable dès maintenant</li>
                         <li>Sans être bon ni en informatique, ni en marketing (et sans poster sur les réseaux sociaux)</li>
                     </ul>
-                    
-                    <a href="#pricing" class="btn btn-large">
-                        <span>Je précommande - 27€</span>
-                    </a>
                 </div>
             </div>
         </div>
