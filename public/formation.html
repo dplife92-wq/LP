@@ -169,36 +169,45 @@
     </section>
 
     <!-- For Who -->
-    <section class="section" id="for-who">
+    <section class="who-for" id="for-who">
         <div class="container">
             <div class="section-inner">
-                <h2>Est-ce que c'est pour toi ?</h2>
+                <h2>Pour qui est faite la méthode Mon Agenda Plein™ ?</h2>
                 
-                <div class="for-who-grid">
-                    <div class="for-who-card yes">
-                        <h3>✅ C'est pour toi si...</h3>
-                        <ul>
-                            <li>Tu es étudiant et veux arrondir tes fins de mois</li>
-                            <li>Tu es enseignant et veux compléter ton salaire</li>
-                            <li>Tu es retraité et cherches une activité enrichissante</li>
-                            <li>Tu es en reconversion et veux te lancer rapidement</li>
-                            <li>Tu veux arrêter de dépendre des plateformes</li>
-                            <li>Tu donnes des cours en ligne ou à domicile</li>
-                            <li>Tu veux des résultats rapides et mesurables</li>
+                <div class="cards">
+                    <article class="card card--good">
+                        <header class="card__head">
+                            <span class="led led--good" aria-hidden="true"></span>
+                            <h3>C'est pour vous si…</h3>
+                            <span class="underline"></span>
+                        </header>
+                        <ul class="list list--good">
+                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous êtes professeur particulier et voulez plus d'élèves.</li>
+                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous cherchez un système simple et concret.</li>
+                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous voulez des élèves réguliers, sans plateformes.</li>
+                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous êtes prêt à investir 20 € de pub pour démarrer.</li>
+                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous voulez des résultats rapides et mesurables.</li>
                         </ul>
-                    </div>
-                    
-                    <div class="for-who-card no">
-                        <h3>❌ Ce n'est pas pour toi si...</h3>
-                        <ul>
-                            <li>Tu cherches une solution miracle sans effort</li>
-                            <li>Tu n'as pas 20 minutes pour configurer</li>
-                            <li>Tu préfères rester sur Superprof uniquement</li>
-                            <li>Tu n'as pas 5€ de budget pub pour commencer</li>
-                            <li>Tu veux des milliers d'élèves du jour au lendemain</li>
-                            <li>Tu n'es pas à l'aise avec un ordinateur</li>
+                    </article>
+
+                    <article class="card card--bad">
+                        <header class="card__head">
+                            <span class="led led--bad" aria-hidden="true"></span>
+                            <h3>Ce n'est pas pour vous si…</h3>
+                            <span class="underline underline--red"></span>
+                        </header>
+                        <ul class="list list--bad">
+                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous cherchez une solution miracle sans effort.</li>
+                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'avez pas 20 minutes pour configurer.</li>
+                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous préférez rester sur les plateformes.</li>
+                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'avez pas 20 € pour démarrer.</li>
+                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'êtes pas prêt à appliquer un système simple à copier-coller.</li>
                         </ul>
-                    </div>
+                    </article>
+                </div>
+
+                <div class="cta-wrap">
+                    <a class="btn-cta" href="#pricing" onclick="handlePurchase()">Je précommande — 27€</a>
                 </div>
             </div>
         </div>
@@ -1328,100 +1337,281 @@
             }
         }
         
-        /* For Who Grid */
-        .for-who-grid {
+        /* Design tokens */
+        :root {
+            --bg: #0B0E13;
+            --card: #11151D;
+            --text: #E8EAF1;
+            --muted: #A8B0C0;
+            --violet: #7C3AED;
+            --violet-2: #8B5CF6;
+            --red: #F43F5E;
+            --green: #22C55E;
+            --glow: 0 0 18px rgba(124,58,237,.25), 0 0 36px rgba(124,58,237,.18);
+            --glow-red: 0 0 18px rgba(244,63,94,.18), 0 0 36px rgba(244,63,94,.12);
+        }
+
+        /* Who For Section */
+        .who-for { 
+            padding: clamp(48px,6vw,80px) 0; 
+            background: var(--bg); 
+            color: var(--text); 
+        }
+
+        .cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: clamp(16px,2.5vw,28px);
+            margin-bottom: clamp(24px,4vw,40px);
         }
         
-        @media (max-width: 768px) {
-            .for-who-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+        @media (max-width: 900px) { 
+            .cards { 
+                grid-template-columns: 1fr; 
+            } 
         }
-        
-        .for-who-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 32px;
+
+        .card {
+            position: relative;
+            background: linear-gradient(180deg, #11151D 0%, #0F141B 100%);
             border-radius: 16px;
-            transition: all 0.3s ease;
+            padding: clamp(20px,2vw,28px);
+            border: 1px solid rgba(124,58,237,.15);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        /* Halo néon derrière la carte */
+        .card::before {
+            content: "";
+            position: absolute; 
+            inset: -20% -10% auto -10%;
+            height: 40%;
+            filter: blur(36px);
+            opacity: .28; 
+            pointer-events: none;
+            z-index: -1;
         }
         
-        @media (max-width: 768px) {
-            .for-who-card {
-                padding: 24px;
-            }
+        .card--good::before { 
+            background: radial-gradient(60% 60% at 30% 40%, rgba(124,58,237,.35) 0%, transparent 70%); 
         }
         
-        .for-who-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
+        .card--bad::before  { 
+            background: radial-gradient(60% 60% at 30% 40%, rgba(244,63,94,.25) 0%, transparent 70%); 
+        }
+
+        /* Liseré animé subtil (neon edge) */
+        .card::after {
+            content: "";
+            position: absolute; 
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(124,58,237,.25), rgba(255,255,255,.06));
+            -webkit-mask: 
+                linear-gradient(#000 0 0) content-box, 
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor; 
+            mask-composite: exclude;
+            animation: edgeMove 6s linear infinite;
+            opacity: .6;
         }
         
-        .for-who-card.yes {
-            border-top: 4px solid #10B981;
+        .card--bad::after { 
+            background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(244,63,94,.22), rgba(255,255,255,.06)); 
+        }
+
+        @keyframes edgeMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* En-tête + soulignement néon */
+        .card__head { 
+            margin-bottom: 16px; 
+            position: relative; 
         }
         
-        .for-who-card.no {
-            border-top: 4px solid #EF4444;
-        }
-        
-        .for-who-card h3 {
-            color: #10B981;
-            margin-bottom: 2rem;
+        .card__head h3 { 
+            margin: 0 0 8px; 
+            font-weight: 700; 
+            letter-spacing: .2px;
+            color: var(--text);
             font-size: 1.4rem;
         }
-        
+
         @media (max-width: 768px) {
-            .for-who-card h3 {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
+            .card__head h3 {
+                font-size: 1.25rem;
             }
         }
         
-        .for-who-card.no h3 {
-            color: #EF4444;
+        .underline {
+            display: block; 
+            height: 2px; 
+            width: 140px; 
+            border-radius: 2px;
+            background: linear-gradient(90deg, transparent, var(--violet-2), transparent);
+            box-shadow: var(--glow);
+            animation: shimmer 3.8s linear infinite;
         }
         
-        .for-who-card ul {
-            list-style: none;
+        .underline--red { 
+            background: linear-gradient(90deg, transparent, var(--red), transparent); 
+            box-shadow: var(--glow-red); 
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* LED orbit en fond du header */
+        .led {
+            position: absolute; 
+            inset: -40px auto auto -60px; 
+            width: 160px; 
+            height: 160px; 
+            border-radius: 50%;
+            filter: blur(38px); 
+            opacity: .18; 
+            pointer-events: none;
+            animation: breathe 5.5s ease-in-out infinite;
         }
         
-        .for-who-card li {
-            margin-bottom: 1rem;
-            padding-left: 28px;
-            position: relative;
-            color: #D1D5DB;
+        .led--good { 
+            background: radial-gradient(circle, rgba(124,58,237,.6) 0%, transparent 60%); 
+        }
+        
+        .led--bad  { 
+            background: radial-gradient(circle, rgba(244,63,94,.5) 0%, transparent 60%); 
+        }
+
+        @keyframes breathe {
+            0%,100% { transform: scale(1); opacity: .18; }
+            50%     { transform: scale(1.06); opacity: .26; }
+        }
+
+        /* Listes & icônes */
+        .list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+        }
+        
+        .list li { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+            color: var(--text); 
+            line-height: 1.5;
             font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 8px;
         }
-        
+
         @media (max-width: 768px) {
-            .for-who-card li {
+            .list li {
                 font-size: 0.95rem;
-                margin-bottom: 0.8rem;
             }
         }
         
-        .for-who-card.yes li::before {
-            content: "✓";
-            color: #10B981;
-            font-weight: 700;
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
+        .icon { 
+            width: 18px; 
+            height: 18px; 
+            flex: 0 0 18px; 
+            filter: drop-shadow(0 0 6px rgba(124,58,237,.35)); 
+            margin-top: 3px; 
         }
         
-        .for-who-card.no li::before {
-            content: "✗";
-            color: #EF4444;
+        .icon--check { 
+            background: radial-gradient(circle at 50% 50%, var(--green) 0 40%, transparent 41%); 
+            mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.285 6.709a1 1 0 0 1 0 1.414l-9.2 9.2a1 1 0 0 1-1.414 0l-5.2-5.2a1 1 0 1 1 1.414-1.414l4.493 4.493 8.493-8.493a1 1 0 0 1 1.414 0z"/></svg>') center/contain no-repeat; 
+        }
+        
+        .icon--close { 
+            background: radial-gradient(circle at 50% 50%, var(--red) 0 40%, transparent 41%); 
+            mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M18.3 5.7a1 1 0 0 1 0 1.4L13.4 12l4.9 4.9a1 1 0 1 1-1.4 1.4L12 13.4l-4.9 4.9a1 1 0 1 1-1.4-1.4L10.6 12 5.7 7.1A1 1 0 1 1 7.1 5.7L12 10.6l4.9-4.9a1 1 0 0 1 1.4 0z"/></svg>') center/contain no-repeat; 
+        }
+
+        /* Hover row = lueur locale */
+        .list li:hover {
+            text-shadow: 0 0 8px rgba(255,255,255,.06);
+        }
+        
+        .card--good .list li:hover { 
+            box-shadow: inset 0 0 0 1px rgba(124,58,237,.25); 
+        }
+        
+        .card--bad  .list li:hover { 
+            box-shadow: inset 0 0 0 1px rgba(244,63,94,.18); 
+        }
+
+        /* CTA */
+        .cta-wrap { 
+            text-align: center; 
+            margin-top: clamp(24px,4vw,40px); 
+        }
+        
+        .btn-cta {
+            display: inline-block; 
+            padding: 16px 26px; 
+            border-radius: 12px; 
             font-weight: 700;
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            background: linear-gradient(180deg, var(--violet-2), var(--violet));
+            color: white; 
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 26px rgba(124,58,237,.35), inset 0 1px 0 rgba(255,255,255,.15);
+            position: relative; 
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .btn-cta {
+                padding: 16px 24px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        .btn-cta::after{
+            content: ""; 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
+            transform: translateX(-100%); 
+        }
+        
+        .btn-cta:hover::after{ 
+            animation: sheen 1.2s ease; 
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(124,58,237,.5), inset 0 1px 0 rgba(255,255,255,.2);
+        }
+        
+        @keyframes sheen {
+            0%   { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Respect motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .card::after, .underline, .led, .btn-cta::after, .breathe, .shimmer, .edgeMove, .sheen { 
+                animation: none !important; 
+            }
         }
         
         /* Steps Grid */
