@@ -122,6 +122,15 @@
             letter-spacing: -0.02em;
         }
         
+        /* Premium gradient for brand name */
+        .brand-name {
+            background: linear-gradient(135deg, #7C3AED, #A855F7, #C084FC);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        
         h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
@@ -302,6 +311,7 @@
         @media (max-width: 768px) {
             .hero-header {
                 margin-bottom: 30px;
+                order: 0;
             }
         }
         
@@ -331,6 +341,11 @@
             
             .hero-benefits {
                 order: 3;
+            }
+            
+            /* Move hero-header before all content on mobile */
+            .hero-header {
+                order: -1;
             }
         }
         
@@ -1286,12 +1301,12 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-header">
-                <h1>Mon Agenda Plein™ : La méthode ultime pour remplir votre agenda d'élèves, sans plateformes ni réseaux sociaux.</h1>
-                <p class="hero-subtitle">Découvrez la méthode exacte pour obtenir un flux stable et constant de demandes d'élèves en 2025.</p>
-            </div>
-            
             <div class="hero-content">
+                <div class="hero-header">
+                    <h1><span class="brand-name">Mon Agenda Plein™</span> : La méthode ultime pour remplir votre agenda d'élèves, sans plateformes ni réseaux sociaux.</h1>
+                    <p class="hero-subtitle">Découvrez la méthode exacte pour obtenir un flux stable et constant de demandes d'élèves en 2025.</p>
+                </div>
+                
                 <div class="hero-image">
                     <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1755962554/Design_sans_titre_y1s0my.png" alt="Bundle de la formation (MacBook, iPhone, iPad avec visuels de la formation)" loading="lazy" width="500" height="400">
                 </div>
