@@ -1839,11 +1839,16 @@
         }
 
 /* Before/After Section V2 - Simplified */
-        .before-after-section-v2 {
-            background: transparent;
+            .before-after-section-v2 {
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.03) 0%, rgba(17, 17, 17, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.08);
+            border-radius: 16px;
+            margin: 24px 0;
             padding: clamp(32px,4vw,60px) 0;
             color: #FFFFFF;
             position: relative;
+            overflow: hidden;
         }
 
         .section-title-gradient {
@@ -2314,7 +2319,7 @@
     <section class="section" id="how-it-works">
         <div class="container">
             <div class="section-inner">
-                <h2>Comment ça marche (3 étapes simples)</h2>
+                <h2>Comment ça marche ?<br><span class="subtitle-mobile">(3 étapes simples)</span></h2>
                 
                 <div class="steps-compact-grid">
                     <!-- Étape 1 -->
