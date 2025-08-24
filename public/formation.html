@@ -726,36 +726,6 @@
             --glow-red: 0 0 18px rgba(244,63,94,.18), 0 0 36px rgba(244,63,94,.12);
         }
 
-        /* Who For Section */
-        .who-for { 
-            padding: clamp(48px,6vw,80px) 0; 
-            background: var(--bg); 
-            color: var(--text); 
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(16px,2.5vw,28px);
-            margin-bottom: clamp(24px,4vw,40px);
-        }
-        
-        @media (max-width: 900px) { 
-            .cards { 
-                grid-template-columns: 1fr; 
-            } 
-        }
-
-        .card {
-            position: relative;
-            background: linear-gradient(180deg, #11151D 0%, #0F141B 100%);
-            border-radius: 16px;
-            padding: clamp(20px,2vw,28px);
-            border: 1px solid rgba(124,58,237,.15);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
-            overflow: hidden;
-            isolation: isolate;
-        }
 
         /* Halo néon derrière la carte */
         .card::before {
@@ -2484,51 +2454,6 @@
                             </li>
                         </ul>
                     </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- For Who -->
-    <section class="who-for" id="for-who">
-        <div class="container">
-            <div class="section-inner">
-                <h2>Pour qui est faite la méthode Mon Agenda Plein™ ?</h2>
-                
-                <div class="cards">
-                    <article class="card card--good">
-                        <header class="card__head">
-                            <span class="led led--good" aria-hidden="true"></span>
-                            <h3>C'est pour vous si…</h3>
-                            <span class="underline"></span>
-                        </header>
-                        <ul class="list list--good">
-                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous êtes professeur particulier et voulez plus d'élèves.</li>
-                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous cherchez un système simple et concret.</li>
-                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous voulez des élèves réguliers, sans plateformes.</li>
-                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous êtes prêt à investir 20 € de pub pour démarrer.</li>
-                            <li><i class="icon icon--check" aria-hidden="true"></i>Vous voulez des résultats rapides et mesurables.</li>
-                        </ul>
-                    </article>
-
-                    <article class="card card--bad">
-                        <header class="card__head">
-                            <span class="led led--bad" aria-hidden="true"></span>
-                            <h3>Ce n'est pas pour vous si…</h3>
-                            <span class="underline underline--red"></span>
-                        </header>
-                        <ul class="list list--bad">
-                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous cherchez une solution miracle sans effort.</li>
-                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'avez pas 20 minutes pour configurer.</li>
-                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous préférez rester sur les plateformes.</li>
-                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'avez pas 20 € pour démarrer.</li>
-                            <li><i class="icon icon--close" aria-hidden="true"></i>Vous n'êtes pas prêt à appliquer un système simple à copier-coller.</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="cta-wrap">
-                    <a class="btn-cta" href="#pricing" onclick="handlePurchase()">Je précommande — 27€</a>
                 </div>
             </div>
         </div>
