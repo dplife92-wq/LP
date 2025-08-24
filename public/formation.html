@@ -989,72 +989,92 @@
             }
         }
         
-        /* How It Works Section - SaaS Style */
+/* How It Works Section - Compact */
         .how-it-works-section {
             padding: clamp(48px,6vw,80px) 0;
-            background: var(--bg);
             color: var(--text);
         }
 
-        .how-it-works-title {
-            text-align: center;
-            font-size: clamp(2.2rem, 4vw, 2.8rem);
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: clamp(48px,6vw,64px);
-            letter-spacing: -0.02em;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(24px,4vw,48px);
+        .steps-compact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
             margin-bottom: clamp(40px,6vw,64px);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @media (max-width: 968px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
+        .step-compact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 32px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124,58,237,0.15);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-compact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(124,58,237,0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-compact:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124,58,237,0.3);
+            box-shadow: 0 12px 40px rgba(124,58,237,0.15);
+        }
+
+        .step-compact:hover::before {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .step-compact {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 24px;
             }
         }
 
-        /* Carte d'étape */
-        .step-card {
-            text-align: center;
-            position: relative;
-        }
-
-        /* Numéro rond avec glow */
-        .step-number {
-            width: 72px;
-            height: 72px;
+        .step-compact-number {
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--violet), var(--violet-2));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin: 0 auto 24px;
-            box-shadow: var(--glow);
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(124,58,237,0.4);
             position: relative;
-            z-index: 2;
         }
 
-        .step-number::before {
+        .step-compact-number::before {
             content: '';
             position: absolute;
-            inset: -8px;
+            inset: -6px;
             border-radius: 50%;
             background: radial-gradient(circle at center, rgba(124,58,237,.3) 0%, transparent 70%);
-            filter: blur(12px);
+            filter: blur(8px);
             z-index: -1;
-            animation: howPulse 3s ease-in-out infinite;
+            animation: stepPulse 3s ease-in-out infinite;
         }
 
-        @keyframes howPulse {
+        @keyframes stepPulse {
             0%, 100% { 
                 transform: scale(1); 
                 opacity: 0.6; 
@@ -1066,86 +1086,124 @@
         }
 
         @media (max-width: 768px) {
-            .step-number {
-                width: 64px;
-                height: 64px;
-                font-size: 1.8rem;
-                margin-bottom: 20px;
+            .step-compact-number {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
             }
         }
 
-        /* Titre d'étape */
-        .step-title {
+        .step-compact-content {
+            flex: 1;
+        }
+
+        .step-compact h3 {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
 
         @media (max-width: 768px) {
-            .step-title {
+            .step-compact h3 {
                 font-size: 1.25rem;
-                margin-bottom: 16px;
+                margin-bottom: 8px;
             }
         }
 
-        /* Liste des actions */
-        .step-actions {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            text-align: left;
-        }
-
-        .step-action {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
+        .step-compact p {
             font-size: 1.05rem;
-            line-height: 1.5;
-            color: var(--text);
-            padding: 12px 16px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(124,58,237,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .step-action:hover {
-            background: rgba(255,255,255,0.04);
-            border-color: rgba(124,58,237,0.2);
-            transform: translateX(2px);
+            line-height: 1.6;
+            color: #C1C5D0;
+            margin: 0;
+            font-weight: 400;
         }
 
         @media (max-width: 768px) {
-            .step-action {
+            .step-compact p {
                 font-size: 1rem;
-                padding: 10px 14px;
             }
         }
 
-        /* Icônes des actions */
-        .action-icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            margin-top: 2px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--violet), var(--violet-2));
-            box-shadow: 0 0 8px rgba(124,58,237,0.3);
+        /* CTA Section */
+        .how-cta-section {
+            text-align: center;
         }
 
-        .action-icon svg {
-            width: 12px;
-            height: 12px;
-            fill: white;
+        .how-cta-button {
+            background: linear-gradient(135deg, var(--violet), var(--violet-2));
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 
+                0 8px 32px rgba(124,58,237,.35), 
+                inset 0 1px 0 rgba(255,255,255,.15);
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .how-cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #A855F7, #C084FC);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .how-cta-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .how-cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 16px 48px rgba(124,58,237,.5),
+                inset 0 1px 0 rgba(255,255,255,.2);
+        }
+
+        .how-cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .how-cta-button:hover::after {
+            transform: translateX(100%);
+        }
+
+        .how-cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .how-cta-button {
+                padding: 16px 28px;
+                font-size: 1.05rem;
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        /* Respect motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .step-compact-number::before,
+            .how-cta-button::after {
+                animation: none !important;
+            }
         }
 
         /* CTA Section */
@@ -2257,83 +2315,37 @@
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works-section" id="how-it-works">
+    <section class="section how-it-works-section" id="how-it-works">
         <div class="container">
             <div class="section-inner">
-                <h2 class="how-it-works-title">Comment ça marche (3 étapes simples)</h2>
+                <h2>Comment ça marche (3 étapes simples)</h2>
                 
-                <div class="steps-grid">
+                <div class="steps-compact-grid">
                     <!-- Étape 1 -->
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Je précommande</h3>
-                        <ul class="step-actions">
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span>Je réserve la formation aujourd'hui (27€ au lieu de 59€).</span>
-                            </li>
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span>J'obtiens l'accès complet <strong>dans 72 heures</strong>.</span>
-                            </li>
-                        </ul>
+                    <div class="step-compact">
+                        <div class="step-compact-number">1</div>
+                        <div class="step-compact-content">
+                            <h3>JE PRÉCOMMANDE</h3>
+                            <p>Je réserve la formation aujourd'hui (27€ au lieu de 59€) et je la reçois par e-mail le <strong><span id="delivery-date">mercredi 27 août</span></strong></p>
+                        </div>
                     </div>
 
                     <!-- Étape 2 -->
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Je regarde et je copie-colle</h3>
-                        <ul class="step-actions">
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
-                                    </svg>
-                                </div>
-                                <span>Je visionne les 3 vidéos (45 min au total).</span>
-                            </li>
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
-                                        <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/>
-                                    </svg>
-                                </div>
-                                <span>J'installe ma première campagne en 20 minutes.</span>
-                            </li>
-                        </ul>
+                    <div class="step-compact">
+                        <div class="step-compact-number">2</div>
+                        <div class="step-compact-content">
+                            <h3>JE COPIE LE SYSTÈME</h3>
+                            <p>Je visionne les 3 vidéos (45 min au total) et je lance ma première campagne en 20 minutes.</p>
+                        </div>
                     </div>
 
                     <!-- Étape 3 -->
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Je décroche mes premiers élèves</h3>
-                        <ul class="step-actions">
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span>Les demandes arrivent automatiquement.</span>
-                            </li>
-                            <li class="step-action">
-                                <div class="action-icon">
-                                    <svg viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span>Je réponds et remplis mon agenda.</span>
-                            </li>
-                        </ul>
+                    <div class="step-compact">
+                        <div class="step-compact-number">3</div>
+                        <div class="step-compact-content">
+                            <h3>JE DÉCROCHE MES PREMIERS ÉLÈVES</h3>
+                            <p>Les demandes arrivent automatiquement et mon agenda se rempli.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -2835,6 +2847,7 @@
         ↑
     </button>
 
+
     <script>
         // FAQ Toggle
         function toggleFaq(button) {
@@ -2915,6 +2928,39 @@
                 images.forEach(img => imageObserver.observe(img));
             }
         });
+
+            // Script à ajouter dans le HTML pour la date automatique
+        function getDateInThreeDays() {
+            const today = new Date();
+            const futureDate = new Date(today);
+            futureDate.setDate(today.getDate() + 3);
+            
+            // Jours de la semaine en français
+            const days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+            
+            // Mois en français
+            const months = [
+                'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+                'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'
+            ];
+            
+            const dayName = days[futureDate.getDay()];
+            const dayNumber = futureDate.getDate();
+            const monthName = months[futureDate.getMonth()];
+            
+            return `${dayName} ${dayNumber} ${monthName}`;
+        }
+
+        // Fonction pour mettre à jour la date dans le DOM
+        function updateDeliveryDate() {
+            const dateElement = document.getElementById('delivery-date');
+            if (dateElement) {
+                dateElement.textContent = getDateInThreeDays();
+            }
+        }
+
+        // Exécuter quand le DOM est chargé
+        document.addEventListener('DOMContentLoaded', updateDeliveryDate);
     </script>
 </body>
 </html></span>
