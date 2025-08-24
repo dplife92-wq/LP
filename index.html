@@ -22,11 +22,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
+    <!-- CSS Modulaire -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/hero.css">
     <link rel="stylesheet" href="assets/css/avant-apres.css">
+    <link rel="stylesheet" href="assets/css/comment-ca-marche.css">
     <link rel="stylesheet" href="assets/css/modules.css">
     <link rel="stylesheet" href="assets/css/temoignages.css">
     <link rel="stylesheet" href="assets/css/tarifs.css">
@@ -67,82 +68,25 @@
     </script>
 </head>
 <body>
-    <!-- Top Bar -->
+    <!-- Sections dynamiques -->
     <div id="top-bar"></div>
-
-    <!-- Hero Section -->
     <section id="hero"></section>
-
-    <!-- Before/After Section -->
     <section id="avant-apres"></section>
-
-    <!-- How It Works Section -->
     <section id="comment-ca-marche"></section>
-
-    <!-- What's Inside Section -->
     <section id="modules"></section>
-
-    <!-- For Who Section -->
     <section id="pour-qui"></section>
-
-    <!-- Testimonials Section -->
     <section id="temoignages"></section>
-
-    <!-- Pricing Section -->
     <section id="tarifs"></section>
-
-    <!-- FAQ Section -->
     <section id="faq"></section>
-
-    <!-- About Section -->
     <section id="apropos"></section>
-
-    <!-- Final CTA -->
     <section id="final-cta"></section>
-
-    <!-- Footer -->
     <footer id="footer"></footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="backToTop">
-        ↑
-    </button>
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="backToTop">↑</button>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Modulaire -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/interactions.js"></script>
-    
-    <script>
-        // Load sections dynamically
-        async function loadSections() {
-            const sections = [
-                { id: 'top-bar', file: 'includes/top-bar.html' },
-                { id: 'hero', file: 'sections/hero.html' },
-                { id: 'avant-apres', file: 'sections/avant-apres.html' },
-                { id: 'comment-ca-marche', file: 'sections/comment-ca-marche.html' },
-                { id: 'modules', file: 'sections/modules.html' },
-                { id: 'pour-qui', file: 'sections/pour-qui.html' },
-                { id: 'temoignages', file: 'sections/temoignages.html' },
-                { id: 'tarifs', file: 'sections/tarifs.html' },
-                { id: 'faq', file: 'sections/faq.html' },
-                { id: 'apropos', file: 'sections/apropos.html' },
-                { id: 'final-cta', file: 'sections/final-cta.html' },
-                { id: 'footer', file: 'sections/footer.html' }
-            ];
-
-            for (const section of sections) {
-                try {
-                    const response = await fetch(section.file);
-                    const html = await response.text();
-                    document.getElementById(section.id).innerHTML = html;
-                } catch (error) {
-                    console.error(`Erreur lors du chargement de ${section.file}:`, error);
-                }
-            }
-        }
-
-        // Load sections when DOM is ready
-        document.addEventListener('DOMContentLoaded', loadSections);
-    </script>
 </body>
 </html>
