@@ -1784,274 +1784,374 @@
             box-shadow: 0 12px 40px rgba(124, 58, 237, 0.6);
         }
 
-        /* Before/After Section Styles */
-        .before-after-section {
-            background: linear-gradient(180deg, rgba(124, 58, 237, 0.03) 0%, rgba(17, 17, 17, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(124, 58, 237, 0.08);
-            margin: 24px 0;
-            border-radius: 16px;
-            overflow: hidden;
-            padding: clamp(48px,6vw,80px) 0;
-            color: var(--text);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(2.2rem, 4vw, 2.8rem);
-            font-weight: 700;
+        /* Before/After Section V2 - SaaS Futuristic Design */
+        .before-after-section-v2 {
+            background: transparent;
+            padding: clamp(60px,8vw,100px) 0;
             color: #FFFFFF;
-            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .section-title-gradient {
+            text-align: center;
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: clamp(48px,6vw,80px);
             letter-spacing: -0.02em;
-        }
-
-        .story-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 64px;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: #C084FC;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .story-intro {
-                font-size: 1.05rem;
-                margin-bottom: 48px;
-            }
-        }
-
-        .image-caption {
-            margin-top: 20px;
-            padding: 16px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #A8B0C0;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        @media (max-width: 768px) {
-            .image-caption {
-                font-size: 0.9rem;
-                padding: 14px;
-            }
-        }
-
-        .before-after-grid {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 48px;
-            align-items: center;
-            margin-bottom: clamp(48px,6vw,64px);
-        }
-
-        @media (max-width: 968px) {
-            .before-after-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-        }
-
-        .agenda-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #C084FC 50%, #7C3AED 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             position: relative;
-            border-radius: 20px;
-            padding: 24px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
         }
 
-        .agenda-card.before {
-            border-color: rgba(239,68,68,0.3);
-        }
-
-        .agenda-card.after {
-            border-color: rgba(34,197,94,0.3);
-        }
-
-        .agenda-card:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        .agenda-card.before:hover {
-            box-shadow: 0 0 20px rgba(239,68,68,.4), 0 0 40px rgba(239,68,68,.2);
-            border-color: rgba(239,68,68,0.5);
-        }
-
-        .agenda-card.after:hover {
-            box-shadow: 0 0 20px rgba(34,197,94,.4), 0 0 40px rgba(34,197,94,.2);
-            border-color: rgba(34,197,94,0.5);
-        }
-
-        .card-label {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: white;
-            z-index: 2;
-            backdrop-filter: blur(10px);
-        }
-
-        .card-label.before {
-            background: linear-gradient(135deg, #EF4444, #F87171);
-            box-shadow: 0 4px 12px rgba(239,68,68,0.3);
-        }
-
-        .card-label.after {
-            background: linear-gradient(135deg, #22C55E, #34D399);
-            box-shadow: 0 4px 12px rgba(34,197,94,0.3);
-        }
-
-        .agenda-image {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .agenda-card:hover .agenda-image {
-            transform: scale(1.05);
-        }
-
-        .transition-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #7C3AED, #8B5CF6);
-            box-shadow: 0 0 20px rgba(124,58,237,.4), 0 0 40px rgba(124,58,237,.2);
-            position: relative;
-            animation: arrowPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes arrowPulse {
-            0%, 100% { 
-                transform: scale(1); 
-                box-shadow: 0 0 20px rgba(124,58,237,.4), 0 0 40px rgba(124,58,237,.2); 
-            }
-            50% { 
-                transform: scale(1.1); 
-                box-shadow: 0 0 30px rgba(124,58,237,.6), 0 0 60px rgba(124,58,237,.3); 
-            }
-        }
-
-        .transition-arrow::before {
+        .section-title-gradient::after {
             content: '';
             position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(124,58,237,.2) 0%, transparent 70%);
-            filter: blur(8px);
-            z-index: -1;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #7C3AED, transparent);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(124,58,237,0.4);
         }
 
-        .transition-arrow svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-            transform: translateX(2px);
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: clamp(32px,4vw,64px);
+            align-items: center;
+            margin-bottom: clamp(48px,6vw,80px);
         }
 
         @media (max-width: 968px) {
-            .transition-arrow {
-                width: 64px;
-                height: 64px;
-                margin: 16px auto;
-            }
-
-            .transition-arrow svg {
-                width: 24px;
-                height: 24px;
-                transform: rotate(90deg) translateX(1px);
+            .transformation-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
             }
         }
 
-        .cta-section {
-            text-align: center;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 36px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 1.15rem;
-            background: linear-gradient(135deg, #7C3AED, #8B5CF6);
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 
-                0 8px 32px rgba(124,58,237,.35), 
-                inset 0 1px 0 rgba(255,255,255,.15);
+        .transformation-card {
             position: relative;
-            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
 
-        .cta-button::before {
+        .transformation-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #A855F7, #C084FC);
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 24px;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
-        .cta-button::after {
+        .transformation-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(124,58,237,0.3);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 40px rgba(124,58,237,0.1);
+        }
+
+        .transformation-card:hover::before {
+            opacity: 1;
+        }
+
+        .before-card {
+            border-color: rgba(239,68,68,0.2);
+        }
+
+        .before-card:hover {
+            border-color: rgba(239,68,68,0.4);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 40px rgba(239,68,68,0.15);
+        }
+
+        .after-card {
+            border-color: rgba(34,197,94,0.2);
+        }
+
+        .after-card:hover {
+            border-color: rgba(34,197,94,0.4);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 40px rgba(34,197,94,0.15);
+        }
+
+        .card-header {
+            margin-bottom: 24px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .before-badge {
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.1));
+            color: #FCA5A5;
+            border-color: rgba(239,68,68,0.2);
+            box-shadow: 0 4px 16px rgba(239,68,68,0.1);
+        }
+
+        .after-badge {
+            background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(22,163,74,0.1));
+            color: #86EFAC;
+            border-color: rgba(34,197,94,0.2);
+            box-shadow: 0 4px 16px rgba(34,197,94,0.1);
+        }
+
+        .badge-icon {
+            font-size: 1.1em;
+        }
+
+        .card-image-container {
+            position: relative;
+            margin-bottom: 28px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .transformation-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.4s ease;
+            border-radius: 16px;
+        }
+
+        .transformation-card:hover .transformation-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .transformation-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .card-content {
+            text-align: center;
+        }
+
+        @media (max-width: 968px) {
+            .card-content {
+                text-align: left;
+            }
+        }
+
+        .card-subtitle {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .card-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+
+        .card-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #C1C5D0;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .card-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* Flèche de transformation futuriste */
+        .transformation-arrow-v2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .arrow-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .arrow-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+            animation: arrowGlowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes arrowGlowPulse {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: scale(1); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2); 
+            }
+        }
+
+        .arrow-body {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 
+                0 8px 32px rgba(124,58,237,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .arrow-body:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                0 12px 48px rgba(124,58,237,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .arrow-icon {
+            width: 28px;
+            height: 28px;
+            color: white;
+            transform: translateX(2px);
+        }
+
+        .transformation-text {
+            text-align: center;
+        }
+
+        .transformation-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #C084FC;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            background: rgba(124,58,237,0.1);
+            border: 1px solid rgba(124,58,237,0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 968px) {
+            .arrow-body {
+                width: 72px;
+                height: 72px;
+            }
+
+            .arrow-icon {
+                width: 24px;
+                height: 24px;
+                transform: rotate(90deg) translateY(-1px);
+            }
+
+            .transformation-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* CTA Section */
+        .transformation-cta {
+            text-align: center;
+        }
+
+        .transformation-button {
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 
+                0 8px 32px rgba(124,58,237,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transformation-button::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,.3), transparent);
+            background: linear-gradient(135deg, #8B5CF6, #C084FC);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .transformation-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
             transform: translateX(-100%);
             transition: transform 0.6s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
+        .transformation-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: rgba(255,255,255,0.2);
             box-shadow: 
-                0 16px 48px rgba(124,58,237,.5),
-                inset 0 1px 0 rgba(255,255,255,.2);
+                0 16px 64px rgba(124,58,237,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
-        .cta-button:hover::before {
+        .transformation-button:hover::before {
             opacity: 1;
         }
 
-        .cta-button:hover::after {
+        .transformation-button:hover::after {
             transform: translateX(100%);
         }
 
-        .cta-button span {
+        .transformation-button span {
             position: relative;
             z-index: 1;
         }
 
-        @media (max-width: 768px) {
-            .cta-button {
-                padding: 16px 28px;
-                font-size: 1.05rem;
-                width: 100%;
-                max-width: 320px;
-            }
-        }
-
         /* Respect motion preferences */
         @media (prefers-reduced-motion: reduce) {
-            .transition-arrow,
-            .cta-button::after {
+            .arrow-glow,
+            .transformation-button::after {
                 animation: none !important;
             }
         }
@@ -2095,48 +2195,84 @@
         </div>
     </section>
 
-    <!-- Before/After Section -->
-    <section class="before-after-section">
+    <!-- Before/After Section - SaaS Futuristic Design -->
+    <section class="before-after-section-v2">
         <div class="container">
-            <h2 class="section-title">De zéro élève à un agenda rempli en quelques jours</h2>
-            
-            <div class="before-after-grid">
-                <!-- Avant -->
-                <div class="agenda-card before">
-                    <div class="card-label before">Avant</div>
-                    <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024869/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.31.58_kimq7r.png" 
-                         alt="Agenda vide avant la méthode" 
-                         class="agenda-image"
-                         loading="lazy">
-                    <div class="image-caption">
-                        Stéphane est professeur de maths. Pas à l'aise avec les réseaux sociaux, il passait des heures à attendre des demandes qui n'arrivaient pas.
+            <div class="section-inner">
+                <h2 class="section-title-gradient">De zéro élève à un agenda rempli en quelques jours</h2>
+                
+                <div class="transformation-grid">
+                    <!-- Avant -->
+                    <div class="transformation-card before-card">
+                        <div class="card-header">
+                            <div class="status-badge before-badge">
+                                <span class="badge-icon">❌</span>
+                                <span class="badge-text">Avant</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-image-container">
+                            <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024869/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.31.58_kimq7r.png" 
+                                 alt="Agenda vide avant la méthode" 
+                                 class="transformation-image"
+                                 loading="lazy">
+                            <div class="image-overlay before-overlay"></div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3 class="card-subtitle">La galère des plateformes</h3>
+                            <p class="card-description">
+                                Stéphane est professeur de maths. Il passait par Superprof, faisait des cours à 20 €/h, n'avait trouvé que 2 élèves en 3 semaines. Ses revenus étaient irréguliers et il avait l'impression de brader son travail.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Flèche de transformation -->
+                    <div class="transformation-arrow-v2">
+                        <div class="arrow-container">
+                            <div class="arrow-glow"></div>
+                            <div class="arrow-body">
+                                <svg viewBox="0 0 24 24" class="arrow-icon">
+                                    <path fill="currentColor" d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                                </svg>
+                            </div>
+                            <div class="transformation-text">
+                                <span class="transformation-label">Mon Agenda Plein™</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Après -->
+                    <div class="transformation-card after-card">
+                        <div class="card-header">
+                            <div class="status-badge after-badge">
+                                <span class="badge-icon">✅</span>
+                                <span class="badge-text">Après</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-image-container">
+                            <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024875/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.29.06_bchkcu.png" 
+                                 alt="Agenda plein après la méthode" 
+                                 class="transformation-image"
+                                 loading="lazy">
+                            <div class="image-overlay after-overlay"></div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <h3 class="card-subtitle">Liberté et prospérité</h3>
+                            <p class="card-description">
+                                Avec la méthode Mon Agenda Plein™, Stéphane a rempli son agenda en quelques jours. Il donne désormais 22 heures de cours par semaine à 35 €/h (soit 70 € par séance de 2h), avec des élèves réguliers et stables.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Flèche de transition -->
-                <div class="transition-arrow">
-                    <svg viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
+                <div class="transformation-cta">
+                    <a href="#pricing" class="btn btn-large transformation-button" onclick="handlePurchase()">
+                        <span>JE PRÉCOMMANDE — 27€</span>
+                    </a>
                 </div>
-
-                <!-- Après -->
-                <div class="agenda-card after">
-                    <div class="card-label after">Après</div>
-                    <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024875/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.29.06_bchkcu.png" 
-                         alt="Agenda plein après la méthode" 
-                         class="agenda-image"
-                         loading="lazy">
-                    <div class="image-caption">
-                        Grâce à une méthode simple, sans pub compliquée ni réseaux sociaux, il a rempli son agenda d'élèves réguliers.
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <a href="#pricing" class="cta-button" onclick="handlePurchase()">
-                    <span>JE PRÉCOMMANDE - 27€</span>
-                </a>
             </div>
         </div>
     </section>
@@ -2527,7 +2663,7 @@
         </div>
     </section>
 
-<!-- FAQ -->
+    <!-- FAQ -->
     <section class="section" id="faq">
         <div class="container">
             <div class="section-inner">
