@@ -1,0 +1,232 @@
+/* How It Works Section - SaaS Style */
+.how-it-works-section {
+    padding: clamp(48px,6vw,80px) 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.how-it-works-title {
+    text-align: center;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: clamp(48px,6vw,64px);
+    letter-spacing: -0.02em;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(24px,4vw,48px);
+    margin-bottom: clamp(40px,6vw,64px);
+}
+
+/* Carte d'étape */
+.step-card {
+    text-align: center;
+    position: relative;
+}
+
+/* Numéro rond avec glow */
+.step-number {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet), var(--violet-2));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 auto 24px;
+    box-shadow: var(--glow);
+    position: relative;
+    z-index: 2;
+}
+
+.step-number::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(124,58,237,.3) 0%, transparent 70%);
+    filter: blur(12px);
+    z-index: -1;
+    animation: howPulse 3s ease-in-out infinite;
+}
+
+@keyframes howPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        opacity: 0.6; 
+    }
+    50% { 
+        transform: scale(1.1); 
+        opacity: 1; 
+    }
+}
+
+/* Titre d'étape */
+.step-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+/* Liste des actions */
+.step-actions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.step-action {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(124,58,237,0.1);
+    transition: all 0.3s ease;
+}
+
+.step-action:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(124,58,237,0.2);
+    transform: translateX(2px);
+}
+
+/* Icônes des actions */
+.action-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--violet), var(--violet-2));
+    box-shadow: 0 0 8px rgba(124,58,237,0.3);
+}
+
+.action-icon svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
+}
+
+/* CTA Section */
+.how-cta-section {
+    text-align: center;
+}
+
+.how-cta-button {
+    display: inline-block;
+    padding: 18px 36px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, var(--violet), var(--violet-2));
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 
+        0 8px 32px rgba(124,58,237,.35), 
+        inset 0 1px 0 rgba(255,255,255,.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.how-cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #A855F7, #C084FC);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.how-cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.how-cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 16px 48px rgba(124,58,237,.5),
+        inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+.how-cta-button:hover::before {
+    opacity: 1;
+}
+
+.how-cta-button:hover::after {
+    transform: translateX(100%);
+}
+
+.how-cta-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 968px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .step-number {
+        width: 64px;
+        height: 64px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .step-title {
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+    }
+
+    .step-action {
+        font-size: 1rem;
+        padding: 10px 14px;
+    }
+
+    .how-cta-button {
+        padding: 16px 28px;
+        font-size: 1.05rem;
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .step-number::before,
+    .how-cta-button::after {
+        animation: none !important;
+    }
+}

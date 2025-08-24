@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remplis ton agenda d'élèves en 24h — Formation Facebook Ads pour professeurs (27€)</title>
+    <meta name="description" content="Formation complète pour professeurs particuliers : trouve des élèves en 24h avec Facebook Ads. Sans technique, sans réseaux sociaux. 27€ seulement - Garantie 14 jours.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Formation Facebook Ads pour Professeurs - 27€">
+    <meta property="og:description" content="Applique aujourd'hui, décroche tes premiers élèves dès ce soir. Formation complète sans technique.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://res.cloudinary.com/dkwucd1rd/image/upload/v1755893886/ce_soir_ryjuqv.png">
+    <meta property="og:url" content="https://academy.quentinmdb.com/formation">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Formation Facebook Ads pour Professeurs - 27€">
+    <meta name="twitter:description" content="Applique aujourd'hui, décroche tes premiers élèves dès ce soir">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dkwucd1rd/image/upload/v1755893886/ce_soir_ryjuqv.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/avant-apres.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <link rel="stylesheet" href="assets/css/temoignages.css">
+    <link rel="stylesheet" href="assets/css/tarifs.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Schema.org FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Je ne connais rien aux pubs Facebook, est-ce pour moi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument ! La formation est conçue pour les débutants complets. Tout est expliqué étape par étape avec des captures d'écran. Si vous savez poster une photo sur Facebook, vous savez appliquer cette méthode."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Faut-il un budget pub important ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, vous pouvez commencer avec 5€ par jour. La formation vous montre comment optimiser votre budget pour obtenir un élève avec 4-10€ de dépense publicitaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir les premiers résultats ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement 24-48h après avoir lancé votre première campagne. Certains élèves obtiennent leurs premières demandes le soir même."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="top-bar"></div>
+
+    <!-- Hero Section -->
+    <section id="hero"></section>
+
+    <!-- Before/After Section -->
+    <section id="avant-apres"></section>
+
+    <!-- How It Works Section -->
+    <section id="comment-ca-marche"></section>
+
+    <!-- What's Inside Section -->
+    <section id="modules"></section>
+
+    <!-- For Who Section -->
+    <section id="pour-qui"></section>
+
+    <!-- Testimonials Section -->
+    <section id="temoignages"></section>
+
+    <!-- Pricing Section -->
+    <section id="tarifs"></section>
+
+    <!-- FAQ Section -->
+    <section id="faq"></section>
+
+    <!-- About Section -->
+    <section id="apropos"></section>
+
+    <!-- Final CTA -->
+    <section id="final-cta"></section>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="backToTop">
+        ↑
+    </button>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/interactions.js"></script>
+    
+    <script>
+        // Load sections dynamically
+        async function loadSections() {
+            const sections = [
+                { id: 'top-bar', file: 'includes/top-bar.html' },
+                { id: 'hero', file: 'sections/hero.html' },
+                { id: 'avant-apres', file: 'sections/avant-apres.html' },
+                { id: 'comment-ca-marche', file: 'sections/comment-ca-marche.html' },
+                { id: 'modules', file: 'sections/modules.html' },
+                { id: 'pour-qui', file: 'sections/pour-qui.html' },
+                { id: 'temoignages', file: 'sections/temoignages.html' },
+                { id: 'tarifs', file: 'sections/tarifs.html' },
+                { id: 'faq', file: 'sections/faq.html' },
+                { id: 'apropos', file: 'sections/apropos.html' },
+                { id: 'final-cta', file: 'sections/final-cta.html' },
+                { id: 'footer', file: 'sections/footer.html' }
+            ];
+
+            for (const section of sections) {
+                try {
+                    const response = await fetch(section.file);
+                    const html = await response.text();
+                    document.getElementById(section.id).innerHTML = html;
+                } catch (error) {
+                    console.error(`Erreur lors du chargement de ${section.file}:`, error);
+                }
+            }
+        }
+
+        // Load sections when DOM is ready
+        document.addEventListener('DOMContentLoaded', loadSections);
+    </script>
+</body>
+</html>
