@@ -1784,53 +1784,56 @@
             box-shadow: 0 12px 40px rgba(124, 58, 237, 0.6);
         }
 
-        /* Before/After Section V2 - SaaS Futuristic Design */
-        .before-after-section-v2 {
-            background: transparent;
-            padding: clamp(60px,8vw,100px) 0;
+        /* Before/After Lists */
+        .before-after-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .before-after-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            line-height: 1.5;
             color: #FFFFFF;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        .section-title-gradient {
-            text-align: center;
-            font-size: clamp(2.4rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: clamp(48px,6vw,80px);
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #FFFFFF 0%, #C084FC 50%, #7C3AED 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
+        .before-after-list li::before {
+            content: "▶";
+            color: #7C3AED;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .section-title-gradient::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #7C3AED, transparent);
-            border-radius: 2px;
-            box-shadow: 0 0 20px rgba(124,58,237,0.4);
+        .before-card .before-after-list li::before {
+            color: #EF4444;
         }
 
-        .transformation-grid {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: clamp(32px,4vw,64px);
-            align-items: center;
-            margin-bottom: clamp(48px,6vw,80px);
+        .after-card .before-after-list li::before {
+            color: #22C55E;
         }
 
-        @media (max-width: 968px) {
-            .transformation-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
+        .before-after-list li:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 768px) {
+            .before-after-list li {
+                font-size: 1rem;
+                padding: 10px 14px;
             }
         }
 
@@ -2213,17 +2216,20 @@
                         
                         <div class="card-image-container">
                             <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024869/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.31.58_kimq7r.png" 
-                                 alt="Agenda vide avant la méthode" 
-                                 class="transformation-image"
-                                 loading="lazy">
+                                alt="Agenda vide avant la méthode" 
+                                class="transformation-image"
+                                loading="lazy">
                             <div class="image-overlay before-overlay"></div>
                         </div>
                         
                         <div class="card-content">
                             <h3 class="card-subtitle">La galère des plateformes</h3>
-                            <p class="card-description">
-                                Stéphane est professeur de maths. Il passait par Superprof, faisait des cours à 20 €/h, n'avait trouvé que 2 élèves en 3 semaines. Ses revenus étaient irréguliers et il avait l'impression de brader son travail.
-                            </p>
+                            <ul class="before-after-list">
+                                <li>Seulement 2 élèves trouvés en 3 semaines</li>
+                                <li>Tarifs bradés à 20€/h sur Superprof</li>
+                                <li>Revenus complètement irréguliers</li>
+                                <li>Impression de dévaloriser son expertise</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -2253,17 +2259,20 @@
                         
                         <div class="card-image-container">
                             <img src="https://res.cloudinary.com/dkwucd1rd/image/upload/v1756024875/Capture_d_e%CC%81cran_2025-08-24_a%CC%80_10.29.06_bchkcu.png" 
-                                 alt="Agenda plein après la méthode" 
-                                 class="transformation-image"
-                                 loading="lazy">
+                                alt="Agenda plein après la méthode" 
+                                class="transformation-image"
+                                loading="lazy">
                             <div class="image-overlay after-overlay"></div>
                         </div>
                         
                         <div class="card-content">
                             <h3 class="card-subtitle">Liberté et prospérité</h3>
-                            <p class="card-description">
-                                Avec la méthode Mon Agenda Plein™, Stéphane a rempli son agenda en quelques jours. Il donne désormais 22 heures de cours par semaine à 35 €/h (soit 70 € par séance de 2h), avec des élèves réguliers et stables.
-                            </p>
+                            <ul class="before-after-list">
+                                <li>Agenda rempli en quelques jours seulement</li>
+                                <li>22h de cours/semaine à 35€/h (au lieu de 20€/h)</li>
+                                <li>70€ par séance de 2h avec élèves réguliers</li>
+                                <li>Revenus stables et prévisibles</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
